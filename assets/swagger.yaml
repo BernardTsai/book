@@ -49,6 +49,64 @@ securityDefinitions:
     name: "api_key"
     in: "header"
 definitions:
+  Model:
+    type: "object"
+    description: "The information model for the orchestration of lifecycles"
+    properties:
+      Schema:
+        type: "string"
+        description: "Schema of the model"
+      Name:
+        type: "string"
+        description: "Name of the model"
+      Domains:
+        type: "object"
+        description: "Map of names to domains"
+        additionalProperties:
+          $ref: "#/definitions/Domain"
+  Domain:
+    type: "object"
+    description: "An adminsitrative realm within a model"
+    properties:
+      Name:
+        type: "string"
+        description: "Name of the domain"
+      Catalog:
+        additionalProperties:
+          $ref: "#/definitions/ComponentTemplate"
+        description: "Map of names to templates for elements"
+      Architectures:
+        additionalProperties:
+          $ref: "#/definitions/SolutionArchitecture"
+        description: "Map of names to architecture blueprints"
+      Solutions:
+        additionalProperties:
+          $ref: "#/definitions/Solution"
+        description: "Map of names to components"
+      Task:
+        additionalProperties:
+          $ref: "#/definitions/Task"
+        description: "Map of uuids to tasks"
+      Event:
+        additionalProperties:
+          $ref: "#/definitions/Event"
+        description: "Map of uuids to events"
+  ComponentTemplate:
+    type: "object"
+    description: "A template for a version of a component"
+    properties:
+      Component:
+        type: "string"
+        description: "Name of the component"
+      Version:
+        type: "string"
+        description: "Version of the component"
+      Configuration:
+        $ref: "#/definitions/Configuration"
+      DependencyTemplates:
+        additionalProperties:
+          $ref: "#/definitions/DependencyTemplate"
+        description: "Map of names to dependencies of a component version"
   DependencyTemplate:
     type: "object"
     description: "A template for a component dependency"
@@ -62,125 +120,161 @@ definitions:
         enum: ["context", "service"]
       Component:
         type: "string"
-        description: "Name of the component"
+        description: "Name of the referenced component"
       Version:
         type: "string"
-        description: "Version of the component"
-  VersionTemplate:
-    type: "object"
-    description: "A template for a component version"
-    properties:
-      Version:
-        type: "string"
-        description: "Version of the component"
+        description: "Version of the referenced component"
       Configuration:
-        type: "string"
-        description: "Opaque component version specific information encapuslated in a string"
-      DependencyTemplates:
-        additionalProperties:
-          $ref: "#/definitions/DependencyTemplate"
-        description: "Map of names to dependencies of a component version"
-  ComponentTemplate:
+        $ref: "#/definitions/Configuration"
+  SolutionArchitecture:
     type: "object"
-    description: "A template for a component"
+    description: "An configuration for a version of a solution"
     properties:
       Name:
         type: "string"
-        description: "Name of the component"
-      ComponentVersionTemplates:
-        additionalProperties:
-          $ref: "#/definitions/VersionTemplate"
-        description: "Map of names to templates for component versions"
-  ArchitectureVersionConfiguration:
-    type: "object"
-    description: "A configuration for a version of an architecture component"
-    properties:
-      Component:
-        type: "string"
-        description: "Name of an architecture component"
+        description: "Name of the solution architecture"
       Version:
         type: "string"
-        description: "Version of an architecture component version"
+        description: "Version of the solution architecture"
+      Configuration:
+        $ref: "#/definitions/Configuration"
+      Elements:
+        type: "object"
+        description: "Map of component names to configurations for solution elements"
+        additionalProperties:
+          $ref: "#/definitions/ElementConfiguration"
+  ElementConfiguration:
+    type: "object"
+    description: "A configuration for a solution element"
+    properties:
+      Name:
+        type: "string"
+        description: "Name of the solution element"
+      Component:
+        type: "string"
+        description: "Name of the component template"
+      Configuration:
+        $ref: "#/definitions/Configuration"
+      Versions:
+        additionalProperties:
+          $ref: "#/definitions/ClusterConfiguration"
+        description: "Map of version names to configurations for versions of solution elements"
+  ClusterConfiguration:
+    type: "object"
+    description: "A configuration for a cluster of solution elements"
+    properties:
+      Version:
+        type: "string"
+        description: "Version of a component template"
       State:
         type: "string"
-        description: "State of an architecture component version"
+        description: "Desired state of the version of a solution element"
       Size:
         type: "integer"
-        description: "State of an architecture component version"
+        description: "Desired size of the version of a solution element"
         minimum: 0
-      Parameters:
-        type: "object"
-        additionalProperties: true
-  ArchitectureComponentConfiguration:
-    type: "object"
-    description: "A configuration for an architecture component"
-    properties:
-      Component:
-        type: "string"
-        description: "Name of an architecture component"
-      ArchitectureVersionConfigurations:
+      Configuration:
+        $ref: "#/definitions/Configuration"
+      Dependencies:
         additionalProperties:
-          $ref: "#/definitions/ArchitectureVersionConfiguration"
-        description: "Map of version names to component version configurations"
-  Architecture:
+          $ref: "#/definitions/DependencyConfiguration"
+        description: "Map of dependency names to dependency configurations"
+  DependencyConfiguration:
     type: "object"
-    description: "An architecture blueprint"
+    description: "A configuration for a dependency of a version of a solution element"
     properties:
       Name:
         type: "string"
-        description: "Name of the architecture"
+        description: "Name of the dependency"
+      Configuration:
+        $ref: "#/definitions/Configuration"
+  Solution:
+    type: "object"
+    description: "A solution consisting of elements"
+    properties:
+      Name:
+        type: "string"
+        description: "Name of the solution"
+      Configuration:
+        $ref: "#/definitions/Configuration"
+      Elements:
+        type: "object"
+        description: "Map of element names to elements"
+        additionalProperties:
+          $ref: "#/definitions/Element"
+  Element:
+    type: "object"
+    description: "An element of a solution"
+    properties:
+      Name:
+        type: "string"
+        description: "Name of the element"
+      Component:
+        type: "string"
+        description: "Name of the component"
+      Configuration:
+        $ref: "#/definitions/Configuration"
+      Endpoint:
+        $ref: "#/definitions/Endpoint"
+      Clusters:
+        type: "object"
+        additionalProperties:
+          $ref: "#/definitions/Cluster"
+        description: "Map of version names to clusters"
+  Cluster:
+    type: "object"
+    description: "A cluster of instances of an element"
+    properties:
       Version:
         type: "string"
-        description: "Version of the architecture"
-      ArchitectureComponents:
+        description: "Version of the instance"
+      Configuration:
+        $ref: "#/definitions/Configuration"
+      Endpoint:
+        $ref: "#/definitions/Endpoint"
+      Dependencies:
+        type: "object"
+        description: "Map of dependency names to dependencies"
         additionalProperties:
-          $ref: "#/definitions/ArchitectureComponentConfiguration"
-        description: "Map of component names to component configurations"
-  Endpoint:
-    description: "A component endpoint information"
-    additionalProperties:
-      type: string
+          $ref: "#/definitions/Dependency"
+      Instances:
+        type: "object"
+        description: "Map of uuids to cluster element instances"
+        additionalProperties:
+          $ref: "#/definitions/Instance"
+  Dependency:
+    type: "object"
+    description: "An instance of an element"
+    properties:
+      Name:
+        type: "string"
+        description: "Name of the dependency"
+      Configuration:
+        $ref: "#/definitions/Configuration"
+      Endpoint:
+        $ref: "#/definitions/Endpoint"
   Instance:
     type: "object"
-    description: "A component instance"
+    description: "An instance of an element"
     properties:
       UUID:
         type: "string"
         description: "Unique universal identifier of the instance"
-      Version:
-        type: "string"
-        description: "Version of the instance"
       State:
         type: "string"
         description: "State of the instance"
+      Configuration:
+        $ref: "#/definitions/Configuration"
       Endpoint:
-        type: "string"
-        description: "Endpoint information of the instance encapuslated in a string"
-      Depedencies:
-        additionalProperties:
-          $ref: "#/definitions/Endpoint"
-        description: "Map of dependency names to component endpoints"
-  Component:
+        $ref: "#/definitions/Endpoint"
+  Configuration:
     type: "object"
-    description: "A component"
-    properties:
-      Name:
-        type: "string"
-        description: "Name of the component"
-      Type:
-        type: "string"
-        description: "Type of the component"
-      Endpoint:
-        type: "string"
-        description: "Endpoint information of the component encapuslated in a string"
-      Endpoints:
-        additionalProperties:
-          $ref: "#/definitions/Endpoint"
-        description: "Map of version names to component version endpoints"
-      Instances:
-        additionalProperties:
-          $ref: "#/definitions/Instance"
-        description: "Map of uuid to component instances"
+    description: "Configuration information as structured object"
+    additionalProperties: true
+  Endpoint:
+    type: "object"
+    description: "Endpoint information as structured object"
+    additionalProperties: true
   Task:
     type: "object"
     description: "An adminsitrative realm within a model"
@@ -190,19 +284,19 @@ definitions:
         description: "Type of the task"
       Domain:
         type: "string"
-        description: "Domain of the task"
-      Architecture:
+        description: "Name of the Domain"
+      Solution:
         type: "string"
-        description: "Architecture of the entity to manipulate"
-      Component:
+        description: "Name of the Solution"
+      Element:
         type: "string"
-        description: "Component to be manipulated"
-      Version:
+        description: "Name of the element"
+      Cluster:
         type: "string"
-        description: "Version of the component to be manipulated"
+        description: "Cluster (version) of the element"
       Instance:
         type: "string"
-        description: "Univesal unique identifier of the component instance to be manipulated"
+        description: "Univesal unique identifier of the instance"
       State:
         type: "string"
         description: "Desired state for the entity"
@@ -226,11 +320,11 @@ definitions:
           type: "string"
   Event:
     type: "object"
-    description: "An adminsitrative realm within a model"
+    description: "An event related to a task"
     properties:
       Domain:
         type: "string"
-        description: "Domain of the task"
+        description: "Name of the domain"
       UUID:
         type: "string"
         description: "Univesal unique identifier of the event"
@@ -247,47 +341,6 @@ definitions:
       Time:
         type: "string"
         description: "time since 1.1.1970 in nsecs"
-  Domain:
-    type: "object"
-    description: "An adminsitrative realm within a model"
-    properties:
-      Name:
-        type: "string"
-        description: "Name of the domain"
-      ComponentTemplates:
-        additionalProperties:
-          $ref: "#/definitions/ComponentTemplate"
-        description: "Map of names to templates for components"
-      Architectures:
-        additionalProperties:
-          $ref: "#/definitions/Architecture"
-        description: "Map of names to architecture blueprints"
-      Components:
-        additionalProperties:
-          $ref: "#/definitions/Component"
-        description: "Map of names to components"
-      Task:
-        additionalProperties:
-          $ref: "#/definitions/Task"
-        description: "Map of uuids to tasks"
-      Event:
-        additionalProperties:
-          $ref: "#/definitions/Event"
-        description: "Map of uuids to events"
-  Model:
-    type: "object"
-    description: "The information model for the orchestration of lifecycles"
-    properties:
-      Schema:
-        type: "string"
-        description: "Schema of the model"
-      Name:
-        type: "string"
-        description: "Name of the model"
-      Domains:
-        additionalProperties:
-          $ref: "#/definitions/Domain"
-        description: "Map of names to domains"
 externalDocs:
   description: "Orchestration"
   url: "http://tsai.eu"
