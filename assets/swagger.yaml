@@ -20,19 +20,14 @@ tags:
 schemes:
 - "http"
 paths:
-  /model:
+
+  /:
     post:
-      tags:
-      - "model"
-      summary: "Create New Model"
-      description: ""
-      operationId: "createModel"
+      summary: "Set Model"
+      description: "Create model from yaml data"
+      operationId: "model_create"
       consumes:
-      - "application/json"
-      - "application/xml"
-      produces:
-      - "application/xml"
-      - "application/json"
+      - "application/x-yaml"
       parameters:
       - in: "body"
         name: "model"
@@ -41,13 +36,366 @@ paths:
         schema:
           $ref: "#/definitions/Model"
       responses:
-        405:
-          description: "Invalid input"
-securityDefinitions:
-  api_key:
-    type: "apiKey"
-    name: "api_key"
-    in: "header"
+        200:
+          description: "Success"
+    get:
+      summary: "Get model"
+      description: "Retrieves model"
+      operationId: "model_get"
+      produces:
+      - "application/x-yaml"
+      responses:
+        "200":
+          description: "Model data as yaml"
+          schema:
+            $ref: '#/definitions/Model'
+    delete:
+      summary: "Delete model"
+      description: "Resets model to its initial state"
+      operationId: "model_delete"
+      produces:
+      - "application/x-yaml"
+      responses:
+        200:
+          description: "success"
+  /domain:
+    get:
+      summary: "Get domains"
+      description: "Retrieves list of domain names"
+      operationId: "domain_list"
+      produces:
+      - "application/x-yaml"
+      responses:
+        "200":
+          description: "Domain names as yaml"
+          schema:
+            $ref: '#/definitions/Names'
+  /domain/{d}:
+    post:
+      summary: "Create domain"
+      description: "Create domain from yaml data"
+      operationId: "domain_create"
+      consumes:
+      - "application/x-yaml"
+      parameters:
+      - name: d
+        in: path
+        description: domain name
+        type: string
+        required: true
+      - in: "body"
+        name: "domain"
+        description: "The domain definition"
+        required: true
+        schema:
+          $ref: "#/definitions/Domain"
+      responses:
+        200:
+          description: "Success"
+    get:
+      summary: "Get domain"
+      description: "Retrieves domain"
+      operationId: "domain_get"
+      parameters:
+        - name: d
+          in: path
+          description: domain name
+          type: string
+          required: true
+      produces:
+      - "application/x-yaml"
+      responses:
+        200:
+          description: "Domain data as yaml"
+          schema:
+            $ref: '#/definitions/Domain'
+        404:
+          description: "domain not found"
+    delete:
+      summary: "Delete domain"
+      description: "Delete domain"
+      operationId: "domain_delete"
+      produces:
+      - "application/x-yaml"
+      parameters:
+        - name: d
+          in: path
+          description: domain name
+          type: string
+          required: true
+      responses:
+        200:
+          description: "Success"
+        404:
+          description: "domain not found"
+  /domain/{d}/catalog:
+    get:
+      summary: "List names of component templates"
+      description: "Retrieves list of names of component templates"
+      operationId: "component_template_list"
+      parameters:
+      - name: d
+        in: path
+        description: domain name
+        type: string
+        required: true
+      produces:
+      - "application/x-yaml"
+      responses:
+        "200":
+          description: "Component template names as yaml"
+          schema:
+            $ref: '#/definitions/Names'
+  /domain/{d}/catalog/{c}:
+    get:
+      summary: "List versions of a component template"
+      description: "Retrieves list of versions of a component template"
+      operationId: "component_template_version_list"
+      parameters:
+      - name: d
+        in: path
+        description: domain name
+        type: string
+        required: true
+      - name: c
+        in: path
+        description: component name
+        type: string
+        required: true
+      produces:
+      - "application/x-yaml"
+      responses:
+        "200":
+          description: "Component template names as yaml"
+          schema:
+            $ref: '#/definitions/Names'
+  /domain/{d}/catalog/{c}/version/{v}:
+    post:
+      summary: "Create component template"
+      description: "Create component template from yaml data"
+      operationId: "component_template_version_create"
+      consumes:
+      - "application/x-yaml"
+      parameters:
+      - name: d
+        in: path
+        description: domain name
+        type: string
+        required: true
+      - name: c
+        in: path
+        description: component name
+        type: string
+        required: true
+      - name: v
+        in: path
+        description: version of component
+        type: string
+        required: true
+      - in: "body"
+        name: "template"
+        description: "The template definition"
+        required: true
+        schema:
+          $ref: "#/definitions/ComponentTemplate"
+      responses:
+        200:
+          description: "Success"
+    get:
+      summary: "Get component template"
+      description: "Retrieves component template"
+      operationId: "component_template_version_get"
+      parameters:
+      - name: d
+        in: path
+        description: domain name
+        type: string
+        required: true
+      - name: c
+        in: path
+        description: component name
+        type: string
+        required: true
+      - name: v
+        in: path
+        description: version of component
+        type: string
+        required: true
+      produces:
+      - "application/x-yaml"
+      responses:
+        "200":
+          description: "Component template as yaml"
+          schema:
+            $ref: '#/definitions/ComponentTemplate'
+    delete:
+      summary: "Delete component template"
+      description: "Delete component template"
+      operationId: "component_template_version_delete"
+      parameters:
+      - name: d
+        in: path
+        description: domain name
+        type: string
+        required: true
+      - name: c
+        in: path
+        description: component name
+        type: string
+        required: true
+      - name: v
+        in: path
+        description: version of component
+        type: string
+        required: true
+      produces:
+      - "application/x-yaml"
+      responses:
+        200:
+          description: "success"
+  /domain/{d}/architecture:
+    get:
+      summary: "List names of architectures"
+      description: "Retrieves list of names of architectures"
+      operationId: "architecture_list"
+      parameters:
+      - name: d
+        in: path
+        description: domain name
+        type: string
+        required: true
+      produces:
+      - "application/x-yaml"
+      responses:
+        "200":
+          description: "Architecture names as yaml"
+          schema:
+            $ref: '#/definitions/Names'
+  /domain/{d}/architecture/{a}:
+    get:
+      summary: "List versions of an architecture"
+      description: "Retrieves versions of architectures"
+      operationId: "architecture_version_list"
+      parameters:
+      - name: d
+        in: path
+        description: domain name
+        type: string
+        required: true
+      - name: a
+        in: path
+        description: architecture name
+        type: string
+        required: true
+      produces:
+      - "application/x-yaml"
+      responses:
+        "200":
+          description: "Architecture versions as yaml"
+          schema:
+            $ref: '#/definitions/Names'
+  /domain/{d}/architecture/{a}/version/{v}:
+    post:
+      summary: "Create architecture version"
+      description: "Create architecture version from yaml data"
+      operationId: "architecture_version_create"
+      consumes:
+      - "application/x-yaml"
+      parameters:
+      - name: d
+        in: path
+        description: domain name
+        type: string
+        required: true
+      - name: a
+        in: path
+        description: architecture name
+        type: string
+        required: true
+      - name: v
+        in: path
+        description: version of architecture
+        type: string
+        required: true
+      - in: "body"
+        name: "template"
+        description: "The template definition"
+        required: true
+        schema:
+          $ref: "#/definitions/SolutionArchitecture"
+      responses:
+        200:
+          description: "Success"
+    get:
+      summary: "Get architecture version"
+      description: "Retrieves architecture version"
+      operationId: "architecture_version_get"
+      parameters:
+      - name: d
+        in: path
+        description: domain name
+        type: string
+        required: true
+      - name: a
+        in: path
+        description: architecture name
+        type: string
+        required: true
+      - name: v
+        in: path
+        description: version of architecture
+        type: string
+        required: true
+      produces:
+      - "application/x-yaml"
+      responses:
+        "200":
+          description: "Architecture version as yaml"
+          schema:
+            $ref: '#/definitions/SolutionArchitecture'
+    delete:
+      summary: "Delete architecture version"
+      description: "Delete architecture version"
+      operationId: "architecture_version_delete"
+      parameters:
+      - name: d
+        in: path
+        description: domain name
+        type: string
+        required: true
+      - name: a
+        in: path
+        description: architecture name
+        type: string
+        required: true
+      - name: v
+        in: path
+        description: version of architecture
+        type: string
+        required: true
+      produces:
+      - "application/x-yaml"
+      responses:
+        200:
+          description: "success"
+  /domain/{d}/solution:
+    get:
+      summary: "List names of solutions"
+      description: "Retrieves list of names of solutions"
+      operationId: "solution_list"
+      parameters:
+      - name: d
+        in: path
+        description: solution name
+        type: string
+        required: true
+      produces:
+      - "application/x-yaml"
+      responses:
+        "200":
+          description: "Solition names as yaml"
+          schema:
+            $ref: '#/definitions/Names'
 definitions:
   Model:
     type: "object"
@@ -275,6 +623,11 @@ definitions:
     type: "object"
     description: "Endpoint information as structured object"
     additionalProperties: true
+  Names:
+    type: "array"
+    description: "List of names"
+    items:
+      type: "string"
   Task:
     type: "object"
     description: "An adminsitrative realm within a model"

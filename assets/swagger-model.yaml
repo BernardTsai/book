@@ -1,0 +1,313 @@
+swagger: "2.0"
+info:
+  description: "Orchestrator (mailto:bernard@tsai.eu)"
+  version: "1.0.0"
+  title: "Orchestrator"
+  termsOfService: "http://tsai.eu"
+  contact:
+    email: "bernard@tsai.eu"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+paths: {}
+definitions:
+  Model:
+    type: "object"
+    description: "The information model for the orchestration of lifecycles"
+    properties:
+      Schema:
+        type: string
+        description: "Schema of the model"
+      Name:
+        type: string
+        description: "Name of the model"
+      Domains:
+        type: object
+        description: "Map of names to domains"
+        additionalProperties:
+          $ref: "#/definitions/Domain"
+  Domain:
+    type: "object"
+    description: "An adminsitrative realm within a model"
+    properties:
+      Name:
+        type: "string"
+        description: "Name of the domain"
+      Catalog:
+        additionalProperties:
+          $ref: "#/definitions/Component"
+        description: "Map of names to templates for elements"
+      Architectures:
+        additionalProperties:
+          $ref: "#/definitions/Architecture"
+        description: "Map of names to architecture blueprints"
+      Solutions:
+        additionalProperties:
+          $ref: "#/definitions/Solution"
+        description: "Map of names to components"
+      Task:
+        additionalProperties:
+          $ref: "#/definitions/Task"
+        description: "Map of uuids to tasks"
+      Event:
+        additionalProperties:
+          $ref: "#/definitions/Event"
+        description: "Map of uuids to events"
+  Component:
+    type: "object"
+    description: "A template for a version of a component"
+    properties:
+      Component:
+        type: "string"
+        description: "Name of the component"
+      Version:
+        type: "string"
+        description: "Version of the component"
+      Configuration:
+        $ref: "#/definitions/Configuration"
+      Dependencies:
+        additionalProperties:
+          $ref: "#/definitions/Dependency"
+        description: "Map of names to dependencies of a component version"
+  Dependency:
+    type: "object"
+    description: "A template for a component dependency"
+    properties:
+      Name:
+        type: "string"
+        description: "Name of the dependency"
+      Type:
+        type: "string"
+        description: "Type of dependency (context/service)"
+        enum: ["context", "service"]
+      Component:
+        type: "string"
+        description: "Name of the referenced component"
+      Version:
+        type: "string"
+        description: "Version of the referenced component"
+      Configuration:
+        $ref: "#/definitions/Configuration"
+  Architecture:
+    type: "object"
+    description: "An configuration for a version of a solution"
+    properties:
+      Name:
+        type: "string"
+        description: "Name of the solution architecture"
+      Version:
+        type: "string"
+        description: "Version of the solution architecture"
+      Configuration:
+        $ref: "#/definitions/Configuration"
+      Elements:
+        type: "object"
+        description: "Map of component names to configurations for solution elements"
+        additionalProperties:
+          $ref: "#/definitions/ElementConfiguration"
+  ElementConfiguration:
+    type: "object"
+    description: "A configuration for a solution element"
+    properties:
+      Element:
+        type: "string"
+        description: "Name of the solution element"
+      Component:
+        type: "string"
+        description: "Name of the component template"
+      Configuration:
+        $ref: "#/definitions/Configuration"
+      Clusters:
+        additionalProperties:
+          $ref: "#/definitions/ClusterConfiguration"
+        description: "Map of version names to configurations for versions of solution elements"
+  ClusterConfiguration:
+    type: "object"
+    description: "A configuration for a cluster of solution elements"
+    properties:
+      Version:
+        type: "string"
+        description: "Version of a component template"
+      State:
+        type: "string"
+        description: "Desired state of the version of a solution element"
+      Size:
+        type: "integer"
+        description: "Desired size of the version of a solution element"
+        minimum: 0
+      Configuration:
+        $ref: "#/definitions/Configuration"
+      Relationships:
+        additionalProperties:
+          $ref: "#/definitions/RelationshipConfiguration"
+        description: "Map of relationship names to relationship configurations"
+  RelationshipConfiguration:
+    type: "object"
+    description: "A configuration for a relationship of a version of a solution element"
+    properties:
+      Name:
+        type: "string"
+        description: "Name of the relationship"
+      Configuration:
+        $ref: "#/definitions/Configuration"
+  Solution:
+    type: "object"
+    description: "A solution consisting of elements"
+    properties:
+      Name:
+        type: "string"
+        description: "Name of the solution"
+      Configuration:
+        $ref: "#/definitions/Configuration"
+      Elements:
+        type: "object"
+        description: "Map of element names to elements"
+        additionalProperties:
+          $ref: "#/definitions/Element"
+  Element:
+    type: "object"
+    description: "An element of a solution"
+    properties:
+      Name:
+        type: "string"
+        description: "Name of the element"
+      Component:
+        type: "string"
+        description: "Name of the component"
+      Configuration:
+        $ref: "#/definitions/Configuration"
+      Endpoint:
+        $ref: "#/definitions/Endpoint"
+      Clusters:
+        type: "object"
+        additionalProperties:
+          $ref: "#/definitions/Cluster"
+        description: "Map of version names to clusters"
+  Cluster:
+    type: "object"
+    description: "A cluster of instances of an element"
+    properties:
+      Version:
+        type: "string"
+        description: "Version of the instance"
+      Configuration:
+        $ref: "#/definitions/Configuration"
+      Endpoint:
+        $ref: "#/definitions/Endpoint"
+      Relationships:
+        type: "object"
+        description: "Map of relationship names to relationship"
+        additionalProperties:
+          $ref: "#/definitions/Relationship"
+      Instances:
+        type: "object"
+        description: "Map of uuids to cluster element instances"
+        additionalProperties:
+          $ref: "#/definitions/Instance"
+  Relationship:
+    type: "object"
+    description: "An instance of an element"
+    properties:
+      Name:
+        type: "string"
+        description: "Name of the dependency"
+      Configuration:
+        $ref: "#/definitions/Configuration"
+      Endpoint:
+        $ref: "#/definitions/Endpoint"
+  Instance:
+    type: "object"
+    description: "An instance of an element"
+    properties:
+      UUID:
+        type: "string"
+        description: "Unique universal identifier of the instance"
+      State:
+        type: "string"
+        description: "State of the instance"
+      Configuration:
+        $ref: "#/definitions/Configuration"
+      Endpoint:
+        $ref: "#/definitions/Endpoint"
+  Task:
+    type: "object"
+    description: "An activity to manipulate the solution"
+    properties:
+      Type:
+        type: "string"
+        description: "Type of the task"
+      Domain:
+        type: "string"
+        description: "Name of the Domain"
+      Solution:
+        type: "string"
+        description: "Name of the Solution"
+      Element:
+        type: "string"
+        description: "Name of the element"
+      Cluster:
+        type: "string"
+        description: "Cluster (version) of the element"
+      Instance:
+        type: "string"
+        description: "Univesal unique identifier of the instance"
+      State:
+        type: "string"
+        description: "Desired state for the entity"
+      UUID:
+        type: "string"
+        description: "Univesal unique identifier of the task"
+      Parent:
+        type: "string"
+        description: "Univesal unique identifier of the parent task"
+      Status:
+        type: "string"
+        description: "Execution status of the task"
+        enum: ["execution","completion","failure","timeout"]
+      Phase:
+        type: "string"
+        description: "Execution phase of the task"
+      Subtasks:
+        type: "array"
+        description: "Unique universal identifiers of the subtasks"
+        items:
+          type: "string"
+  Event:
+    type: "object"
+    description: "An event related to a task"
+    properties:
+      Type:
+        type: "string"
+        description: "Type of the event"
+        enum: ["execution","completion","failure","timeout"]
+      UUID:
+        type: "string"
+        description: "Univesal unique identifier of the event"
+      Domain:
+        type: "string"
+        description: "Name of the domain"
+      Task:
+        type: "string"
+        description: "Univesal unique identifier of the task"
+      Source:
+        type: "string"
+        description: "Univesal unique identifier of the issuing task or ''"
+      Time:
+        type: "string"
+        description: "time since 1.1.1970 in nsecs"
+  Configuration:
+    type: "object"
+    description: "Configuration information as structured object"
+    additionalProperties: true
+  Endpoint:
+    type: "object"
+    description: "Endpoint information as structured object"
+    additionalProperties: true
+  Names:
+    type: "array"
+    description: "List of names"
+    items:
+      type: "string"
+externalDocs:
+  description: "Orchestration"
+  url: "http://tsai.eu"
