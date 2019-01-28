@@ -6,7 +6,9 @@ domain describing the **current** structure and configuration of a solution
 with the help of a list actual configurations for solution elements and their
 relationships amongst one another.
 
-The configurations are "runtime" configurations. Since they also
+<img src="./assets/solution.svg" alt="Solution" width="720"/>
+
+The configurations are "run-time" configurations. Since they also
 describe those configuration parameters which can only be known at the time the
 solution is being provisioned.
 
@@ -66,10 +68,12 @@ Relationship
 A Relationship describes the runtime configuration for a relationship
 between clusters of related solution elements.
 
-| Attribute     | Type   | Description                  |
-|---------------|--------|------------------------------|
-| Relationship  | string | name of the dependency       |
-| Configuration | object | runtime configuration object |
+| Attribute     | Type   | Description                       |
+|---------------|--------|-----------------------------------|
+| Relationship  | string | name of the dependency            |
+| Element       | string | name of the referenced element    |
+| Version       | string | version of the referenced element |
+| Configuration | object | runtime configuration object      |
 
 Instance
 --------

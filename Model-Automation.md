@@ -5,6 +5,8 @@ Tasks and events form the automation subset of the
 [information model](./Model.md) of a domain describing the **current** structure
 and configuration of a solution.
 
+<img src="./assets/automation.svg" alt="Automation" width="720"/>
+
 Task
 ----
 
@@ -25,7 +27,6 @@ A task describes an activity to manipulate the solution.
 | Instance      | string          | name of the instance           |
 | State         | string          | desired lifecycle state        |
 | Configuration | object          | runtime configuration object   |
-| Elements      | map to Elements | map of names to elements       |
 
 Event
 -----

@@ -5,6 +5,7 @@ The catalog is a subset of the [information model](./Model.md) of a
 domain which holds templates (components and their dependencies) for solution
 elements along with their basic configuration.
 
+<img src="./assets/catalog.svg" alt="Catalog" width="560"/>
 
 Component
 --------

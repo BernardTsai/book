@@ -6,6 +6,8 @@ domain describing the **desired** structure and configuration of a solution
 with the help of a list configurations for solution elements and their
 relationships amongst one another.
 
+<img src="./assets/architecture.svg" alt="Catalog" width="720"/>
+
 The configurations are "design-time" configurations. Since they can only
 describe the configuration parameters which are known at the time the
 solution is being designed.
@@ -66,4 +68,6 @@ between clusters of related solution elements.
 | Attribute     | Type   | Description                       |
 |---------------|--------|-----------------------------------|
 | Relationship  | string | name of the dependency            |
+| Element       | string | name of the referenced element    |
+| Version       | string | version of the referenced element |
 | Configuration | object | relationship configuration object |

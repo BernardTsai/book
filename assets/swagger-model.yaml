@@ -148,6 +148,12 @@ definitions:
       Name:
         type: "string"
         description: "Name of the relationship"
+      Element:
+        type: "string"
+        description: "Name of the element"
+      Version:
+        type: "string"
+        description: "Version of the element"
       Configuration:
         $ref: "#/definitions/Configuration"
   Solution:
@@ -211,6 +217,12 @@ definitions:
       Name:
         type: "string"
         description: "Name of the dependency"
+      Element:
+        type: "string"
+        description: "Name of the element"
+      Version:
+        type: "string"
+        description: "Version of the element"
       Configuration:
         $ref: "#/definitions/Configuration"
       Endpoint:
