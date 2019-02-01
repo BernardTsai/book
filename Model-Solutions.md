@@ -12,7 +12,7 @@ The configurations are "run-time" configurations. Since they also
 describe those configuration parameters which can only be known at the time the
 solution is being provisioned.
 
-Solution
+Solution {#Solution}
 --------
 
 A solution entity describes the current configuration and state of a solution.
@@ -28,7 +28,7 @@ their names.
 | Configuration | object          | runtime configuration object   |
 | Elements      | map to Elements | map of names to elements       |
 
-Element
+Element {#Element}
 -------
 
 An Element describes the runtime configuration of a solution element based
@@ -43,7 +43,7 @@ a component (Clusters) which may require their own specific configurations.
 | Endpoint      | object         | service endpoint             |
 | Clusters      | map to Cluster | map of names to clusters     |
 
-Cluster
+Cluster {#Cluster}
 -------
 
 A Cluster describes the runtime configuration for a cluster within a
@@ -62,10 +62,10 @@ this information it its relationships attribute.
 | Relationships | map to Relationships | map of names to relationships |
 | Instances     | map to Instances     | map of names to instances     |
 
-Relationship
+Relationship {#Relationship}
 ------------
 
-A Relationship describes the runtime configuration for a relationship
+A Relationship describes the runtime configuration for a dependency
 between clusters of related solution elements.
 
 | Attribute     | Type   | Description                       |
@@ -75,7 +75,7 @@ between clusters of related solution elements.
 | Version       | string | version of the referenced element |
 | Configuration | object | runtime configuration object      |
 
-Instance
+Instance {#Instance}
 --------
 
 An Instance describes an instance of a cluster of a solution element.

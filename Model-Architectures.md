@@ -12,7 +12,7 @@ The configurations are "design-time" configurations. Since they can only
 describe the configuration parameters which are known at the time the
 solution is being designed.
 
-Architecture
+Architecture {#Architecture}
 ------------
 
 An architecture is a versioned description of the desired configuration of a
@@ -28,7 +28,7 @@ their names.
 | Configuration | object                       | architecture configuration object   |
 | Elements      | map to ElementConfigurations | map of names to configurations      |
 
-ElementConfiguration
+ElementConfiguration {#ElementConfiguration}
 --------------------
 
 An ElementConfiguration describes the configuration of a solution element based
@@ -42,7 +42,7 @@ a component (Clusters) which may require their own specific configurations.
 | Configuration | object                       | element configuration object        |
 | Clusters      | map to ClusterConfigurations | map of names to configurations      |
 
-ClusterConfiguration
+ClusterConfiguration {#ClusterConfiguration}
 --------------------
 
 A ClusterConfiguration describes the configuration for a cluster within a
@@ -59,7 +59,7 @@ this information it its relationships attribute.
 | Configuration | object                            | cluster configuration object        |
 | Relationships | map to RelationshipConfigurations | map of names to configurations      |
 
-RelationshipConfiguration
+RelationshipConfiguration {#RelationshipConfiguration}
 -------------------------
 
 A RelationshipConfiguration describes the configuration for a relationship

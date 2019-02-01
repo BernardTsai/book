@@ -6,7 +6,7 @@ Orchestrator API
   to external systems via REST interface.
 
  Management
------------ 
+-----------
 
 The API will need to support following administrative use cases to facilitate
 the management of independent domains by a DevOps team:
@@ -74,9 +74,36 @@ to support the management of solutions.
   information provided in an architecture blueprint
 - **SolutionDelete**: delete a solution from a domain
 - **SolutionShow**: display information of a solution in a domain
+- **ElementList**: list all the available elements of a solutions in a domain
+- **ElementUpdate**: update an existing element of a solution in a domain
+  based on the information provided in a configuration object
+- **ElementDelete**: delete an element of a solution from a domain
+- **ElementShow**: display information of an element of a solution in a domain
+- **ClusterList**: list all the available clusters of an element of a solutions
+  in a domain
+- **ClusterUpdate**: update an existing cluster of an element of a solution in a
+  domain based on the information provided in a configuration object
+- **ClusterDelete**: delete a cluster of an element of a solution from a domain
+- **ClusterShow**: display information of a cluster of an element of a solution
+  in a domain
+- **InstanceList**: list all the available instances of a clusters of an element
+  of a solutions in a domain
+- **InstanceUpdate**: update an existing instance of a cluster of an element of
+  a solution in a domain based on the information provided in a configuration
+  object
+- **InstanceDelete**: delete an instance of a cluster of an element of a solution f
+  rom a domain
+- **InstanceShow**: display information of an instance of a cluster of an element
+  of a solution in a domain
 
 It is regarded to be an error if:
 - an unknown domain is referenced,
 - an unknown architecture blueprint is referenced,
 - an unknown solution is referenced when intending to show, delete or update a
   solution
+- an unknown element is referenced when intending to show, delete or update an
+  element
+- an unknown cluster is referenced when intending to show, delete or update a
+  cluster
+- an unknown instance is referenced when intending to show, delete or update an
+  instance
