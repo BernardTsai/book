@@ -1,3 +1,6 @@
+Glossary
+========
+
 ## [Architecture](Model-Architectures.md#Architecture)
 An architecture is a versioned description of the desired configuration of a
 solution.

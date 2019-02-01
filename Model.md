@@ -70,4 +70,4 @@ A **domain** holds four types of information:
   current state with the desired target state and react to **events** which are
   triggered by the execution of tasks.
 
-The schema file in swagger: [swagger-model.yaml](assets/swagger-model.yaml)
+The schema file in swagger: <a href="assets/swagger-model.yaml" target="_blank">swagger-model.yaml</a>

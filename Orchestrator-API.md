@@ -1,5 +1,5 @@
-Orchestrator API
-================
+Application Programming Interface
+=================================
 
 > The orchestrator API exposes all required capabilities for the lifecycle
   automation of solutions covering the sourcing, design and operations phase

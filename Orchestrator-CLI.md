@@ -1,5 +1,5 @@
-Orchestrator CLI
-================
+Command Line Interface
+======================
 
 > The orchestrator CLI exposes all required capabilities for the lifecycle
   automation of solutions covering the sourcing, design and operations phase

@@ -1,5 +1,5 @@
-Orchestrator Message Bus
-========================
+Message Bus
+===========
 
 > The orchestrator produces lifecycle events and consumes commands to trigger
   lifecycle management operations.
