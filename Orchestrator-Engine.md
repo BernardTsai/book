@@ -9,14 +9,14 @@ The following diagram provides an overview of the algorithm of the orchestration
 
 The algorithm splits up into several distinct layers:
 
-Layer A: Main Routine & Interfaces
-----------------------------------
+Layer A: Main Routine
+---------------------
 
 The main routine:
 - registers all controllers,
-- starts the internal communication channel and finally
+- starts the internal communication channel,
 - starts the monitoring system,
-- starts the task dispatcher,
+- starts the task dispatcher and finally
 - initiates all external interfaces (application programming interface, command line interface and message bus interface).
 
 The interfaces collect the requests coming in from DevOps or external systems and publish these requests to the internal channel.

@@ -2,5 +2,5 @@
   "title": "Orchestration of interdependent services",
   "author": "Bernard Tsai",
   "description" : "This book presents a concept of how to coordinate the versions, configurations and lifecycle states of a set of interdependent components so that a desired target version, configuration and lifecycle state of these components is achieved. A specific solution approach alongside with an example demonstrates the potential of the concept",
-  "plugins": ["collapsible-menu","swagger","uml"]
+  "plugins": ["collapsible-menu","swagger","uml","collapse"]
 }

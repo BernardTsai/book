@@ -1,0 +1,699 @@
+swagger: "2.0"
+info:
+  description: "Orchestrator (mailto:bernard@tsai.eu)"
+  version: "1.0.0"
+  title: "Orchestrator"
+  termsOfService: "http://tsai.eu"
+  contact:
+    email: "bernard@tsai.eu"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "tsai.eu"
+basePath: "/alpha"
+tags:
+- name: "orchestration"
+  description: "Orchestration"
+  externalDocs:
+    description: "Concepts and Solution Options"
+    url: "http://tsai.eu"
+schemes:
+- "http"
+paths:
+
+  /:
+    post:
+      summary: "Set Model"
+      description: "Create model from yaml data"
+      operationId: "model_create"
+      consumes:
+      - "application/x-yaml"
+      parameters:
+      - in: "body"
+        name: "model"
+        description: "The model definition"
+        required: true
+        schema:
+          $ref: "#/definitions/Model"
+      responses:
+        200:
+          description: "Success"
+    get:
+      summary: "Get model"
+      description: "Retrieves model"
+      operationId: "model_get"
+      produces:
+      - "application/x-yaml"
+      responses:
+        "200":
+          description: "Model data as yaml"
+          schema:
+            $ref: '#/definitions/Model'
+    delete:
+      summary: "Delete model"
+      description: "Resets model to its initial state"
+      operationId: "model_delete"
+      produces:
+      - "application/x-yaml"
+      responses:
+        200:
+          description: "success"
+  /domain:
+    get:
+      summary: "Get domains"
+      description: "Retrieves list of domain names"
+      operationId: "domain_list"
+      produces:
+      - "application/x-yaml"
+      responses:
+        "200":
+          description: "Domain names as yaml"
+          schema:
+            $ref: '#/definitions/Names'
+  /domain/{d}:
+    post:
+      summary: "Create domain"
+      description: "Create domain from yaml data"
+      operationId: "domain_create"
+      consumes:
+      - "application/x-yaml"
+      parameters:
+      - name: d
+        in: path
+        description: domain name
+        type: string
+        required: true
+      - in: "body"
+        name: "domain"
+        description: "The domain definition"
+        required: true
+        schema:
+          $ref: "#/definitions/Domain"
+      responses:
+        200:
+          description: "Success"
+    get:
+      summary: "Get domain"
+      description: "Retrieves domain"
+      operationId: "domain_get"
+      parameters:
+        - name: d
+          in: path
+          description: domain name
+          type: string
+          required: true
+      produces:
+      - "application/x-yaml"
+      responses:
+        200:
+          description: "Domain data as yaml"
+          schema:
+            $ref: '#/definitions/Domain'
+        404:
+          description: "domain not found"
+    delete:
+      summary: "Delete domain"
+      description: "Delete domain"
+      operationId: "domain_delete"
+      produces:
+      - "application/x-yaml"
+      parameters:
+        - name: d
+          in: path
+          description: domain name
+          type: string
+          required: true
+      responses:
+        200:
+          description: "Success"
+        404:
+          description: "domain not found"
+  /domain/{d}/catalog:
+    get:
+      summary: "List names of component templates"
+      description: "Retrieves list of names of component templates"
+      operationId: "component_template_list"
+      parameters:
+      - name: d
+        in: path
+        description: domain name
+        type: string
+        required: true
+      produces:
+      - "application/x-yaml"
+      responses:
+        "200":
+          description: "Component template names as yaml"
+          schema:
+            $ref: '#/definitions/Names'
+  /domain/{d}/catalog/{c}:
+    get:
+      summary: "List versions of a component template"
+      description: "Retrieves list of versions of a component template"
+      operationId: "component_template_version_list"
+      parameters:
+      - name: d
+        in: path
+        description: domain name
+        type: string
+        required: true
+      - name: c
+        in: path
+        description: component name
+        type: string
+        required: true
+      produces:
+      - "application/x-yaml"
+      responses:
+        "200":
+          description: "Component template names as yaml"
+          schema:
+            $ref: '#/definitions/Names'
+  /domain/{d}/catalog/{c}/version/{v}:
+    post:
+      summary: "Create component template"
+      description: "Create component template from yaml data"
+      operationId: "component_template_version_create"
+      consumes:
+      - "application/x-yaml"
+      parameters:
+      - name: d
+        in: path
+        description: domain name
+        type: string
+        required: true
+      - name: c
+        in: path
+        description: component name
+        type: string
+        required: true
+      - name: v
+        in: path
+        description: version of component
+        type: string
+        required: true
+      - in: "body"
+        name: "template"
+        description: "The template definition"
+        required: true
+        schema:
+          $ref: "#/definitions/ComponentTemplate"
+      responses:
+        200:
+          description: "Success"
+    get:
+      summary: "Get component template"
+      description: "Retrieves component template"
+      operationId: "component_template_version_get"
+      parameters:
+      - name: d
+        in: path
+        description: domain name
+        type: string
+        required: true
+      - name: c
+        in: path
+        description: component name
+        type: string
+        required: true
+      - name: v
+        in: path
+        description: version of component
+        type: string
+        required: true
+      produces:
+      - "application/x-yaml"
+      responses:
+        "200":
+          description: "Component template as yaml"
+          schema:
+            $ref: '#/definitions/ComponentTemplate'
+    delete:
+      summary: "Delete component template"
+      description: "Delete component template"
+      operationId: "component_template_version_delete"
+      parameters:
+      - name: d
+        in: path
+        description: domain name
+        type: string
+        required: true
+      - name: c
+        in: path
+        description: component name
+        type: string
+        required: true
+      - name: v
+        in: path
+        description: version of component
+        type: string
+        required: true
+      produces:
+      - "application/x-yaml"
+      responses:
+        200:
+          description: "success"
+  /domain/{d}/architecture:
+    get:
+      summary: "List names of architectures"
+      description: "Retrieves list of names of architectures"
+      operationId: "architecture_list"
+      parameters:
+      - name: d
+        in: path
+        description: domain name
+        type: string
+        required: true
+      produces:
+      - "application/x-yaml"
+      responses:
+        "200":
+          description: "Architecture names as yaml"
+          schema:
+            $ref: '#/definitions/Names'
+  /domain/{d}/architecture/{a}:
+    get:
+      summary: "List versions of an architecture"
+      description: "Retrieves versions of architectures"
+      operationId: "architecture_version_list"
+      parameters:
+      - name: d
+        in: path
+        description: domain name
+        type: string
+        required: true
+      - name: a
+        in: path
+        description: architecture name
+        type: string
+        required: true
+      produces:
+      - "application/x-yaml"
+      responses:
+        "200":
+          description: "Architecture versions as yaml"
+          schema:
+            $ref: '#/definitions/Names'
+  /domain/{d}/architecture/{a}/version/{v}:
+    post:
+      summary: "Create architecture version"
+      description: "Create architecture version from yaml data"
+      operationId: "architecture_version_create"
+      consumes:
+      - "application/x-yaml"
+      parameters:
+      - name: d
+        in: path
+        description: domain name
+        type: string
+        required: true
+      - name: a
+        in: path
+        description: architecture name
+        type: string
+        required: true
+      - name: v
+        in: path
+        description: version of architecture
+        type: string
+        required: true
+      - in: "body"
+        name: "template"
+        description: "The template definition"
+        required: true
+        schema:
+          $ref: "#/definitions/SolutionArchitecture"
+      responses:
+        200:
+          description: "Success"
+    get:
+      summary: "Get architecture version"
+      description: "Retrieves architecture version"
+      operationId: "architecture_version_get"
+      parameters:
+      - name: d
+        in: path
+        description: domain name
+        type: string
+        required: true
+      - name: a
+        in: path
+        description: architecture name
+        type: string
+        required: true
+      - name: v
+        in: path
+        description: version of architecture
+        type: string
+        required: true
+      produces:
+      - "application/x-yaml"
+      responses:
+        "200":
+          description: "Architecture version as yaml"
+          schema:
+            $ref: '#/definitions/SolutionArchitecture'
+    delete:
+      summary: "Delete architecture version"
+      description: "Delete architecture version"
+      operationId: "architecture_version_delete"
+      parameters:
+      - name: d
+        in: path
+        description: domain name
+        type: string
+        required: true
+      - name: a
+        in: path
+        description: architecture name
+        type: string
+        required: true
+      - name: v
+        in: path
+        description: version of architecture
+        type: string
+        required: true
+      produces:
+      - "application/x-yaml"
+      responses:
+        200:
+          description: "success"
+  /domain/{d}/solution:
+    get:
+      summary: "List names of solutions"
+      description: "Retrieves list of names of solutions"
+      operationId: "solution_list"
+      parameters:
+      - name: d
+        in: path
+        description: solution name
+        type: string
+        required: true
+      produces:
+      - "application/x-yaml"
+      responses:
+        "200":
+          description: "Solition names as yaml"
+          schema:
+            $ref: '#/definitions/Names'
+definitions:
+  Model:
+    type: "object"
+    description: "The information model for the orchestration of lifecycles"
+    properties:
+      Schema:
+        type: "string"
+        description: "Schema of the model"
+      Name:
+        type: "string"
+        description: "Name of the model"
+      Domains:
+        type: "object"
+        description: "Map of names to domains"
+        additionalProperties:
+          $ref: "#/definitions/Domain"
+  Domain:
+    type: "object"
+    description: "An adminsitrative realm within a model"
+    properties:
+      Name:
+        type: "string"
+        description: "Name of the domain"
+      Catalog:
+        additionalProperties:
+          $ref: "#/definitions/ComponentTemplate"
+        description: "Map of names to templates for elements"
+      Architectures:
+        additionalProperties:
+          $ref: "#/definitions/SolutionArchitecture"
+        description: "Map of names to architecture blueprints"
+      Solutions:
+        additionalProperties:
+          $ref: "#/definitions/Solution"
+        description: "Map of names to components"
+      Task:
+        additionalProperties:
+          $ref: "#/definitions/Task"
+        description: "Map of uuids to tasks"
+      Event:
+        additionalProperties:
+          $ref: "#/definitions/Event"
+        description: "Map of uuids to events"
+  ComponentTemplate:
+    type: "object"
+    description: "A template for a version of a component"
+    properties:
+      Component:
+        type: "string"
+        description: "Name of the component"
+      Version:
+        type: "string"
+        description: "Version of the component"
+      Configuration:
+        $ref: "#/definitions/Configuration"
+      DependencyTemplates:
+        additionalProperties:
+          $ref: "#/definitions/DependencyTemplate"
+        description: "Map of names to dependencies of a component version"
+  DependencyTemplate:
+    type: "object"
+    description: "A template for a component dependency"
+    properties:
+      Name:
+        type: "string"
+        description: "Name of the dependency"
+      Type:
+        type: "string"
+        description: "Type of dependency (context/service)"
+        enum: ["context", "service"]
+      Component:
+        type: "string"
+        description: "Name of the referenced component"
+      Version:
+        type: "string"
+        description: "Version of the referenced component"
+      Configuration:
+        $ref: "#/definitions/Configuration"
+  SolutionArchitecture:
+    type: "object"
+    description: "An configuration for a version of a solution"
+    properties:
+      Name:
+        type: "string"
+        description: "Name of the solution architecture"
+      Version:
+        type: "string"
+        description: "Version of the solution architecture"
+      Configuration:
+        $ref: "#/definitions/Configuration"
+      Elements:
+        type: "object"
+        description: "Map of component names to configurations for solution elements"
+        additionalProperties:
+          $ref: "#/definitions/ElementConfiguration"
+  ElementConfiguration:
+    type: "object"
+    description: "A configuration for a solution element"
+    properties:
+      Name:
+        type: "string"
+        description: "Name of the solution element"
+      Component:
+        type: "string"
+        description: "Name of the component template"
+      Configuration:
+        $ref: "#/definitions/Configuration"
+      Versions:
+        additionalProperties:
+          $ref: "#/definitions/ClusterConfiguration"
+        description: "Map of version names to configurations for versions of solution elements"
+  ClusterConfiguration:
+    type: "object"
+    description: "A configuration for a cluster of solution elements"
+    properties:
+      Version:
+        type: "string"
+        description: "Version of a component template"
+      State:
+        type: "string"
+        description: "Desired state of the version of a solution element"
+      Size:
+        type: "integer"
+        description: "Desired size of the version of a solution element"
+        minimum: 0
+      Configuration:
+        $ref: "#/definitions/Configuration"
+      Dependencies:
+        additionalProperties:
+          $ref: "#/definitions/DependencyConfiguration"
+        description: "Map of dependency names to dependency configurations"
+  DependencyConfiguration:
+    type: "object"
+    description: "A configuration for a dependency of a version of a solution element"
+    properties:
+      Name:
+        type: "string"
+        description: "Name of the dependency"
+      Configuration:
+        $ref: "#/definitions/Configuration"
+  Solution:
+    type: "object"
+    description: "A solution consisting of elements"
+    properties:
+      Name:
+        type: "string"
+        description: "Name of the solution"
+      Configuration:
+        $ref: "#/definitions/Configuration"
+      Elements:
+        type: "object"
+        description: "Map of element names to elements"
+        additionalProperties:
+          $ref: "#/definitions/Element"
+  Element:
+    type: "object"
+    description: "An element of a solution"
+    properties:
+      Name:
+        type: "string"
+        description: "Name of the element"
+      Component:
+        type: "string"
+        description: "Name of the component"
+      Configuration:
+        $ref: "#/definitions/Configuration"
+      Endpoint:
+        $ref: "#/definitions/Endpoint"
+      Clusters:
+        type: "object"
+        additionalProperties:
+          $ref: "#/definitions/Cluster"
+        description: "Map of version names to clusters"
+  Cluster:
+    type: "object"
+    description: "A cluster of instances of an element"
+    properties:
+      Version:
+        type: "string"
+        description: "Version of the instance"
+      Configuration:
+        $ref: "#/definitions/Configuration"
+      Endpoint:
+        $ref: "#/definitions/Endpoint"
+      Dependencies:
+        type: "object"
+        description: "Map of dependency names to dependencies"
+        additionalProperties:
+          $ref: "#/definitions/Dependency"
+      Instances:
+        type: "object"
+        description: "Map of uuids to cluster element instances"
+        additionalProperties:
+          $ref: "#/definitions/Instance"
+  Dependency:
+    type: "object"
+    description: "An instance of an element"
+    properties:
+      Name:
+        type: "string"
+        description: "Name of the dependency"
+      Configuration:
+        $ref: "#/definitions/Configuration"
+      Endpoint:
+        $ref: "#/definitions/Endpoint"
+  Instance:
+    type: "object"
+    description: "An instance of an element"
+    properties:
+      UUID:
+        type: "string"
+        description: "Unique universal identifier of the instance"
+      State:
+        type: "string"
+        description: "State of the instance"
+      Configuration:
+        $ref: "#/definitions/Configuration"
+      Endpoint:
+        $ref: "#/definitions/Endpoint"
+  Configuration:
+    type: "object"
+    description: "Configuration information as structured object"
+    additionalProperties: true
+  Endpoint:
+    type: "object"
+    description: "Endpoint information as structured object"
+    additionalProperties: true
+  Names:
+    type: "array"
+    description: "List of names"
+    items:
+      type: "string"
+  Task:
+    type: "object"
+    description: "An adminsitrative realm within a model"
+    properties:
+      Type:
+        type: "string"
+        description: "Type of the task"
+      Domain:
+        type: "string"
+        description: "Name of the Domain"
+      Solution:
+        type: "string"
+        description: "Name of the Solution"
+      Element:
+        type: "string"
+        description: "Name of the element"
+      Cluster:
+        type: "string"
+        description: "Cluster (version) of the element"
+      Instance:
+        type: "string"
+        description: "Univesal unique identifier of the instance"
+      State:
+        type: "string"
+        description: "Desired state for the entity"
+      UUID:
+        type: "string"
+        description: "Univesal unique identifier of the task"
+      Parent:
+        type: "string"
+        description: "Univesal unique identifier of the parent task"
+      Status:
+        type: "string"
+        description: "Execution status of the task"
+        enum: ["execution","completion","failure","timeout"]
+      Phase:
+        type: "string"
+        description: "Execution phase of the task"
+      Subtasks:
+        type: "array"
+        description: "Unique universal identifiers of the subtasks"
+        items:
+          type: "string"
+  Event:
+    type: "object"
+    description: "An event related to a task"
+    properties:
+      Domain:
+        type: "string"
+        description: "Name of the domain"
+      UUID:
+        type: "string"
+        description: "Univesal unique identifier of the event"
+      Task:
+        type: "string"
+        description: "Univesal unique identifier of the task"
+      Type:
+        type: "string"
+        description: "Type of the event"
+        enum: ["execution","completion","failure","timeout"]
+      Source:
+        type: "string"
+        description: "Univesal unique identifier of the issuing task or ''"
+      Time:
+        type: "string"
+        description: "time since 1.1.1970 in nsecs"
+externalDocs:
+  description: "Orchestration"
+  url: "http://tsai.eu"

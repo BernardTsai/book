@@ -16,7 +16,6 @@ which serve as the foundation for the actual solution design:
 * [Dependencies:](./Concepts-Dependencies.md) interaction patterns
 * [Closed-Loop:](./Concepts-ClosedLoop.md) converging towards target states
 * [Configuration:](./Concepts-Configuration.md) customization of components
-* [Extension:](./Concepts-Extensions.md) core functions and extension points
 
 These concepts are detailed in the corresponding subchapters and together
 determine the design of the orchestration algorithm.

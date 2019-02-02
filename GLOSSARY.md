@@ -32,6 +32,9 @@ An event notifies about the occurrence of a task related event.
 ## [Instance](Model-Solutions.md#Instance)
 An Instance describes an instance of a cluster of a solution element.
 
+## [Lifecycle Model](Concepts-Lifecycle.md)
+A lifecycle model can be represented as a directed graph of states and transitions describing how an instance of a component may evolve in the course of its existence.
+
 ## [Relationship](Model-Solutions.md#Relationship)
 A Relationship describes the runtime configuration for a dependency between clusters of related solution elements.
 
