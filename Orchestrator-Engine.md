@@ -1,7 +1,9 @@
 Orchestration Engine
 ====================
 
-> The orchestrator engine is responsible for coordinating the lifecycle management activities of the various component specific controllers.
+<div class="subtitle">
+The orchestrator engine is responsible for coordinating the lifecycle management activities of the various component specific controllers.
+</div>
 
 The following diagram provides an overview of the algorithm of the orchestration engine:
 

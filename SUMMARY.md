@@ -24,7 +24,7 @@
     * [Solutions](Model-Solutions.md)
     * [Automation](Model-Automation.md)
 * [Orchestrator](Orchestrator.md)
-    * [Application Programming Interfae](Orchestrator-API.md)
+    * [Application Programming Interface](Orchestrator-API.md)
     * [Command Line Interface](Orchestrator-CLI.md)
     * [Message Bus](Orchestrator-MSG.md)
     * [Model](Orchestrator-Model.md)

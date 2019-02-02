@@ -1,9 +1,9 @@
 Application Programming Interface
 =================================
 
-> The orchestrator API exposes all required capabilities for the lifecycle
-  automation of solutions covering the sourcing, design and operations phase
-  to external systems via REST interface.
+<div class="subtitle">
+The orchestrator API exposes all required capabilities for the lifecycle automation of solutions covering the sourcing, design and operations phase to external systems via REST interface.
+</div>
 
  Management
 -----------

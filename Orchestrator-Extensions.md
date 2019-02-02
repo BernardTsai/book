@@ -1,7 +1,9 @@
 Extensions
 ==========
 
-> Enhancing closed loop automation in a well defined way with custom code.
+<div class="subtitle">
+Enhancing closed loop automation in a well defined way with custom code.
+</div>
 
 Managing the lifecycle of a complex solution may have to include sophisticated
 procedures which can not be covered by a closed-loop automation framework in a

@@ -1,8 +1,9 @@
 Orchestrator Model
 ==================
 
-> The orchestrator model closely reflects the entities defined in the information model supporting the sourcing, design and operations phase of a
-solution.
+<div class="subtitle">
+The orchestrator model closely reflects the entities defined in the information model supporting the sourcing, design and operations phase of a solution.
+</div>
 
 The following diagram provides an overview of the model which the orchestration engine uses.
 

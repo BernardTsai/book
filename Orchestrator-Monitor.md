@@ -1,7 +1,9 @@
 Monitoring
 ==========
 
-> The monitoring system continuously compares the current state of instances with the desired target state and if needed triggers compensating measures.
+<div class="subtitle">
+The monitoring system continuously compares the current state of instances with the desired target state and if needed triggers compensating measures.
+</div>
 
 The following diagram depicts the basic functionality provided by the monitoring system.
 

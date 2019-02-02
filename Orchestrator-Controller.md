@@ -1,7 +1,7 @@
 Controller
 ==========
 
-<div style="background:lightgrey; padding:8px; margin-bottom:8px;">
+<div class="subtitle">
 A controller is a component type specific management component capable of applying the changes to component instances according to the standardised component lifecycle model and providing information about the status of these instances.
 </div>
 

@@ -1,8 +1,9 @@
 Message Bus
 ===========
 
-> The orchestrator produces lifecycle events and consumes commands to trigger
-  lifecycle management operations.
+<div class="subtitle">
+The orchestrator produces lifecycle events and consumes commands to trigger   lifecycle management operations.
+</div>
 
 Publish
 -------
