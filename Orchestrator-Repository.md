@@ -1,11 +1,15 @@
-Orchestrator Model
-==================
+Repository
+==========
 
 <div class="subtitle">
-The orchestrator model closely reflects the entities defined in the information model supporting the sourcing, design and operations phase of a solution.
+The repository maintains the entities defined in the information model supporting the sourcing, design and operations phase of a solution.
 </div>
 
-The following diagram provides an overview of the model which the orchestration engine uses.
+The repository interacts with the orchestrator engine and monitor system to support the automation of the lifecycle management of solutions.
+
+<img src="./assets/images/repository.svg" alt="Repository" width="560"/>
+
+The following diagram provides an overview of the model maintained in the repository.
 
 <img src="./assets/images/model-overview.svg" alt="Model" width="910"/>
 

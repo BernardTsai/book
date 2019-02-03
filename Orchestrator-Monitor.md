@@ -1,5 +1,5 @@
-Monitoring
-==========
+Monitor
+=======
 
 <div class="subtitle">
 The monitoring system continuously compares the current state of instances with the desired target state and if needed triggers compensating measures.
@@ -7,7 +7,7 @@ The monitoring system continuously compares the current state of instances with 
 
 The following diagram depicts the basic functionality provided by the monitoring system.
 
-<img src="./assets/images/monitoring.svg" alt="Monitoring" width="400"/>
+<img src="./assets/images/monitor.svg" alt="Monitor" width="400"/>
 
 The monitoring system will conduct in regular intervals the following steps:
 

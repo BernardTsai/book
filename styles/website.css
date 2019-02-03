@@ -4,3 +4,12 @@
   padding-bottom:   16px;
   margin-bottom:    16px;
 }
+
+.markdown-section p a {
+  color: black;
+}
+
+.markdown-section div a {
+  color:           grey;
+  text-decoration: none;
+}

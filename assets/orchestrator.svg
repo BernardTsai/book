@@ -125,22 +125,22 @@
   </g>
   <text style="fill: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;; font-size: 12px; font-weight: 700; white-space: pre; text-anchor: middle;" x="420.01" y="12.748">Orchestrator</text>
   <text style="fill: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;; font-size: 10px; text-anchor: middle; white-space: pre;" x="354.02" y="193.89">Controllers</text>
-  <rect x="390" y="20" width="59.885" height="160" style="fill: rgb(160, 160, 160);"/>
-  <rect x="460" y="20" width="60.092" height="160" style="fill: rgb(160, 160, 160);"/>
-  <rect x="400" y="30" width="40" height="40" style="fill: rgb(216, 216, 216);"/>
-  <text style="fill: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;; font-size: 10px; text-anchor: middle; white-space: pre;" x="420.005" y="53.789">Model</text>
-  <text style="fill: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;; font-size: 10px; text-anchor: middle; white-space: pre;" x="420.021" y="193.883">Engine</text>
+  <rect x="390" y="20" width="70" height="160" style="fill: rgb(160, 160, 160);"/>
+  <rect x="470" y="20" width="50.092" height="160" style="fill: rgb(160, 160, 160);"/>
+  <rect x="400" y="30" width="50" height="40" style="fill: rgb(216, 216, 216);"/>
+  <text style="fill: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;; font-size: 10px; text-anchor: middle; white-space: pre;" x="425.005" y="53.867">Engine</text>
+  <text style="fill: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;; font-size: 10px; text-anchor: middle; white-space: pre;" x="420.021" y="193.883">Core</text>
   <text style="fill: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;; font-size: 10px; text-anchor: middle; white-space: pre;" x="487.013" y="193.882">Interfaces</text>
-  <rect x="400" y="80" width="40" height="40" style="fill: rgb(216, 216, 216);"/>
-  <text style="fill: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;; font-size: 10px; text-anchor: middle; white-space: pre;" x="420.021" y="103.789">Engine</text>
-  <rect x="400" y="130" width="40" height="40" style="fill: rgb(216, 216, 216);"/>
-  <text style="fill: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;; font-size: 10px; text-anchor: middle; white-space: pre;" x="420.013" y="153.789">Monitor</text>
-  <rect x="470" y="30" width="50" height="40" style="fill: rgb(216, 216, 216);"/>
-  <rect x="470.092" y="80" width="50" height="40" style="fill: rgb(216, 216, 216);"/>
-  <rect x="470.092" y="130" width="50" height="40" style="fill: rgb(216, 216, 216);"/>
-  <text style="fill: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;; font-size: 10px; text-anchor: middle; white-space: pre;" x="495.005" y="53.789">API</text>
-  <text style="fill: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;; font-size: 10px; text-anchor: middle; white-space: pre;" x="495.097" y="103.789">CLI</text>
-  <text style="fill: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;; font-size: 10px; text-anchor: middle; white-space: pre;" x="495.111" y="153.789">MSG</text>
+  <rect x="400" y="80" width="50" height="40" style="fill: rgb(216, 216, 216);"/>
+  <text style="fill: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;; font-size: 10px; text-anchor: middle; white-space: pre;" x="425.021" y="103.867">Repository</text>
+  <rect x="400" y="130" width="50" height="40" style="fill: rgb(216, 216, 216);"/>
+  <text style="fill: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;; font-size: 10px; text-anchor: middle; white-space: pre;" x="425.013" y="153.867">Monitor</text>
+  <rect x="480" y="30" width="40.018" height="40" style="fill: rgb(216, 216, 216);"/>
+  <rect x="480.074" y="80" width="40.018" height="40" style="fill: rgb(216, 216, 216);"/>
+  <rect x="480.074" y="130" width="40.018" height="40" style="fill: rgb(216, 216, 216);"/>
+  <text style="fill: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;; font-size: 10px; text-anchor: middle; white-space: pre;" x="500.014" y="53.867">API</text>
+  <text style="fill: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;; font-size: 10px; text-anchor: middle; white-space: pre;" x="500.086" y="103.867">CLI</text>
+  <text style="fill: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;; font-size: 10px; text-anchor: middle; white-space: pre;" x="500.1" y="153.867">MSG</text>
   <g transform="matrix(1, 0, 0, 1, 102, 0)">
     <path d="M -220 28.334 H -209.482 L -209.482 26.667 L -200 30.001 L -209.482 33.334 L -209.482 31.667 H -220 V 28.334 Z" style="fill: rgb(0, 0, 255);" transform="matrix(-1, 0, 0, 1, 0, 0)" bx:shape="arrow -220 26.667 20 6.667 3.333 9.482 0 1@7b81d6d6"/>
     <path d="M -220 56.334 H -209.482 L -209.482 54.667 L -200 58.001 L -209.482 61.334 L -209.482 59.667 H -220 V 56.334 Z" style="fill: rgb(255, 0, 0);" transform="matrix(-1, 0, 0, 1, 0, 0)" bx:shape="arrow -220 54.667 20 6.667 3.333 9.482 0 1@ea96271d"/>

@@ -35,8 +35,17 @@ An Instance describes an instance of a cluster of a solution element.
 ## [Lifecycle Model](Concepts-Lifecycle.md)
 A lifecycle model can be represented as a directed graph of states and transitions describing how an instance of a component may evolve in the course of its existence.
 
+## [Model](Model.md)
+The information required for the closed-loop automation procedures for managing the lifecycle of solutions.
+
+## [Monitor](Orchestrator-Monitor.md)
+The monitoring system is a module of the orchtestrator and continuously compares the current state of instances with the desired target state and if needed triggers compensating measures.
+
 ## [Relationship](Model-Solutions.md#Relationship)
 A Relationship describes the runtime configuration for a dependency between clusters of related solution elements.
+
+## [Repository](Orchestrator-Repository.md)
+The repository is a module of the orchestrator and holds the information required for the closed-loop automation procedures.
 
 ## [Solution](Model-Solutions.md#Solution)
 A solution entity describes the current configuration and state of a solution which may consist of a number of elements.

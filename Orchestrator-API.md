@@ -5,8 +5,20 @@ Application Programming Interface
 The orchestrator API exposes all required capabilities for the lifecycle automation of solutions covering the sourcing, design and operations phase to external systems via REST interface.
 </div>
 
- Management
------------
+The application programming interface is exposed to external systems and serves as a gateway to expose the capabilities of the orchestration engine.
+
+<img src="./assets/images/api.svg" alt="Application Programming interface" width="560"/>
+
+The API provides interfaces to
+
+- support the administration,
+- manage templates in a catalog,
+- manage architectures and configurations and
+- manage the lifecycle of solutions.
+
+---
+
+**Administration**
 
 The API will need to support following administrative use cases to facilitate
 the management of independent domains by a DevOps team:
@@ -16,8 +28,9 @@ the management of independent domains by a DevOps team:
 - **DomainDelete**: delete a domain
 - **DomainShow**: display domain information
 
-Catalog Management
-------------------
+---
+
+**Catalog Management**
 
 Catalog management is conducted in the context of a specific domain.
 The API will need to support the following use cases for the sourcing phase
@@ -38,8 +51,9 @@ It is regarded to be an error if:
 - an unknown component is referenced when intending to show or delete a
   component
 
-Architecture Management
------------------------
+---
+
+**Architecture Management**
 
 Architecture Management is also conducted in the context of a specific domain.
 The API will need to support the following use cases for the design phase
@@ -60,8 +74,9 @@ It is regarded to be an error if:
 - an unknown architecture is referenced when intending to show or delete an
   architecture
 
-Solution Management
------------------------
+---
+
+**Solution Management**
 
 Solution Management is also conducted in the context of a specific domain.
 The API will need to support the following use cases for the operations phase

@@ -27,7 +27,7 @@
     * [Application Programming Interface](Orchestrator-API.md)
     * [Command Line Interface](Orchestrator-CLI.md)
     * [Message Bus](Orchestrator-MSG.md)
-    * [Model](Orchestrator-Model.md)
+    * [Repository](Orchestrator-Repository.md)
     * [Engine](Orchestrator-Engine.md)
     * [Monitor](Orchestrator-Monitor.md)
     * [Controller](Orchestrator-Controller.md)

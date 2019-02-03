@@ -5,10 +5,22 @@ Command Line Interface
 The orchestrator CLI exposes all required capabilities for the lifecycle automation of solutions covering the sourcing, design and operations phase to the DevOps team with console access.
 </div>
 
-Domain Management
------------------
+The command line interface is exposed to the DevOps team and serves as a gateway to expose the capabilities of the orchestration engine.
 
-The CLI will need to support following administrative use cases to facilitate
+<img src="./assets/images/cli.svg" alt="Command Line Interface" width="560"/>
+
+The CLI provides commands to
+
+- support the administration,
+- manage templates in a catalog,
+- manage architectures and configurations and
+- manage the lifecycle of solutions.
+
+---
+
+**Administration**
+
+The API will need to support following administrative use cases to facilitate
 the management of independent domains by a DevOps team:
 
 - **DomainList**: list all the available domains
@@ -16,11 +28,12 @@ the management of independent domains by a DevOps team:
 - **DomainDelete**: delete a domain
 - **DomainShow**: display domain information
 
-Catalog Management
-------------------
+---
+
+**Catalog Management**
 
 Catalog management is conducted in the context of a specific domain.
-The CLI will need to support the following use cases for the sourcing phase
+The API will need to support the following use cases for the sourcing phase
 to support the management of templates for components.
 
 - **ComponentList**: list all the available components in a domain
@@ -38,11 +51,12 @@ It is regarded to be an error if:
 - an unknown component is referenced when intending to show or delete a
   component
 
-Architecture Management
------------------------
+---
+
+**Architecture Management**
 
 Architecture Management is also conducted in the context of a specific domain.
-The CLI will need to support the following use cases for the design phase
+The API will need to support the following use cases for the design phase
 to support the management of solution architectures.
 
 - **ArchitectureList**: list all the available architectures in a domain
@@ -60,11 +74,12 @@ It is regarded to be an error if:
 - an unknown architecture is referenced when intending to show or delete an
   architecture
 
-Solution Management
------------------------
+---
+
+**Solution Management**
 
 Solution Management is also conducted in the context of a specific domain.
-The CLI will need to support the following use cases for the operations phase
+The API will need to support the following use cases for the operations phase
 to support the management of solutions.
 
 - **SolutionList**: list all the available solutions in a domain

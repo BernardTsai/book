@@ -5,10 +5,56 @@ Message Bus
 The orchestrator produces lifecycle events and consumes commands to trigger   lifecycle management operations.
 </div>
 
-Publish
--------
+The message bus interface is exposed to external systems and serves as a gateway to expose the capabilities of the orchestration engine and the monitoring system.
 
-The orchestrator can be handed a unique topic identifier "**TOPIC1**" in the
+<img src="./assets/images/msg.svg" alt="Message Bus" width="560"/>
+
+The message bus provides access to
+
+- commands for the lifecycle management of solutions,
+- task related notification events and
+- status information of the the solution.
+
+---
+
+**Solution Management**
+
+The orchestrator can be handed a second unique topic identifier "**TOPIC1**"
+in the course of the startup process. This is the topic to which it will
+subscribe in order to receive commands from a [Kafka](https://kafka.apache.org/)
+broker.
+
+The commands may relate to following types of tasks which need to be executed:
+
+- **Architecture**: tasks related to the instantiation or update of a solution
+  based on an architecture blueprint
+- **Element**: tasks related to the instantiation, modification or deletion of
+  an element
+- **Cluster**: tasks related to the instantiation, modification or deletion of
+  a cluster
+- **Instance**: tasks related to the instantiation, modification or deletion of
+  an instance
+
+The attributes of the commands are:
+
+| Attribute     | Type            | Description                     |
+|---------------|-----------------|---------------------------------|
+| Request       | string          | request identifier              |
+| Type          | string          | type of the task                |
+| Domain        | string          | name of the domain              |
+| Solution      | string          | name of the solution            |
+| Element       | string          | name of the element             |
+| Cluster       | string          | name of the cluster             |
+| Instance      | string          | name of the instance            |
+| Size          | integer         | desired cluster size            |
+| State         | string          | desired lifecycle state         |
+| Configuration | object          | runtime configuration object    |
+
+---
+
+**Task Events**
+
+The orchestrator can be handed a unique topic identifier "**TOPIC2**" in the
 course of the startup process. This is the topic to which it will publish its
 events to a [Kafka](https://kafka.apache.org/) broker.
 
@@ -58,35 +104,12 @@ corresponding task:
 | State         | string          | desired lifecycle state         |
 | Configuration | object          | runtime configuration object    |
 
-Subscribe
----------
+---
 
-The orchestrator can be handed a second unique topic identifier "**TOPIC2**"
-in the course of the startup process. This is the topic to which it will
-subscribe in order to receive commands from a [Kafka](https://kafka.apache.org/)
-broker.
+**Status**
 
-The commands may relate to following types of tasks which need to be executed:
+The orchestrator can be handed a unique topic identifier "**TOPIC3**" in the
+course of the startup process. This is the topic to which it will publish its
+status information to a [Kafka](https://kafka.apache.org/) broker.
 
-- **Architecture**: tasks related to the instantiation or update of a solution
-  based on an architecture blueprint
-- **Element**: tasks related to the instantiation, modification or deletion of
-  an element
-- **Cluster**: tasks related to the instantiation, modification or deletion of
-  a cluster
-- **Instance**: tasks related to the instantiation, modification or deletion of
-  an instance
-
-The attributes of the commands are:
-
-| Attribute     | Type            | Description                     |
-|---------------|-----------------|---------------------------------|
-| Request       | string          | request identifier              |
-| Type          | string          | type of the task                |
-| Domain        | string          | name of the domain              |
-| Solution      | string          | name of the solution            |
-| Element       | string          | name of the element             |
-| Cluster       | string          | name of the cluster             |
-| Instance      | string          | name of the instance            |
-| State         | string          | desired lifecycle state         |
-| Configuration | object          | runtime configuration object    |
+TODO..
