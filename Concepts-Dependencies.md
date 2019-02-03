@@ -15,5 +15,64 @@ activities of the controllers as type specific management components.
 * [Cluster Context:](./Concepts-Dependencies-Cluster.md)
   interactions within a component cluster
 
-These concepts are detailed in the corresponding subchapters and also together
-determine the design of the orchestration algorithm.
+**Runtime Context**
+
+> Components can provide the runtime environment for other components.
+
+Often components require a specific environment in which they will need to be
+provisioned. This is the runtime environment of a component.
+
+Relating this constraint to the [lifecycle model](./Concepts-Lifecycle.md) of
+components immediately implies that components can not be created if the
+components which are providing their runtime environment are not in the active
+state.
+
+Vice versa if a runtime environment leaves the active state it is necessary to
+inform the dependent components that they will have to be destroyed as well in
+the course of this process.
+
+```
+PICTURE
+```
+
+**Service Context**
+
+> Components can provide backend services for other components.
+
+Often components require a services from other components in order to be
+capable of providing their own service. These backend components are the
+service environment of these components.
+
+Relating this constraint to the [lifecycle model](./Concepts-Lifecycle.md) of
+components immediately implies that components can not be activated if the
+components which are providing their service environment are not in the active
+state.
+
+Vice versa if a component of a service environment leaves the active state it is
+necessary to inform the dependent components that they will have to be
+deactivated as well in the course of this process.
+
+```
+PICTURE
+```
+
+**Cluster Context**
+
+> Component instances interact in clusters to ensure service availability.
+
+Several component instances of a specific type can group together to form a
+[cluster](./Concepts-Cluster.md).
+
+The service [endpoints](./Concepts-Endpoints.md) of component cluster are
+exposed by a component cluster in a stable manner ensuring that changes in the
+lifecycle state of individual component instances do NOT change the service
+endpoint of the whole cluster.
+
+Relating this constraint to the [lifecycle model](./Concepts-Lifecycle.md) of
+component instances immediately implies that component instances can not be
+activated or deactivated without informing their siblings by triggering a
+corresponding reconfigure transition.
+
+```
+PICTURE
+```
