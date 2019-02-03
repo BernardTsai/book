@@ -23,10 +23,13 @@ The API provides interfaces to
 The API will need to support following administrative use cases to facilitate
 the management of independent domains by a DevOps team:
 
-- **DomainList**: list all the available domains
-- **DomainCreate**: create a new domain
-- **DomainDelete**: delete a domain
-- **DomainShow**: display domain information
+- **ResetModel**: reset model in the repository to initial state
+- **StoreModel**: create model from yaml data and store it into the repository
+- **RetrieveModel**: retrieve model from the repository as yaml data
+- **ListDomains**: list all the available domains
+- **StoreDomain**: create a new domain from yaml data and store it in the repository
+- **RetrieveDomain**: retrieve domain from the repository as yaml data
+- **RemoveDomain**: remove domain from the repository
 
 ---
 
@@ -36,10 +39,11 @@ Catalog management is conducted in the context of a specific domain.
 The API will need to support the following use cases for the sourcing phase
 to support the management of templates for components.
 
-- **ComponentList**: list all the available components in a domain
-- **ComponentCreate**: define a new component for a domain
-- **ComponentDelete**: delete a component from a domain
-- **ComponentShow**: display information of a component in a domain
+- **ListComponents**: list all the available components in a domain
+- **ListComponentVersions**: list all the available versions of a component in a domain
+- **StoreComponent**: create a new component from yaml data and store it in the repository
+- **RetrieveComponent**: retrieve component from the repository as yaml data
+- **RemoveComponent**: remove component from the repository
 
 Component templates are regarded to be immutable. Therefore no update operations
 are provided for components.
@@ -59,10 +63,11 @@ Architecture Management is also conducted in the context of a specific domain.
 The API will need to support the following use cases for the design phase
 to support the management of solution architectures.
 
-- **ArchitectureList**: list all the available architectures in a domain
-- **ArchitectureCreate**: define a new architecture for a domain
-- **ArchitectureDelete**: delete an architecture from a domain
-- **ArchitectureShow**: display information of an architecture in a domain
+- **ListArchitectures**: list all the available architectures in a domain
+- **ListArchitectureVersions**: list all the available versions of an architecture in a domain
+- **StoreArchitecture**: create a new architecture from yaml data and store it in the repository
+- **RetrieveArchitecture**: retrieve architecture from the repository as yaml data
+- **RemoveArchitecture**: remove architecture from the repository
 
 Architectures are regarded to be immutable. Therefore no update operations
 are provided for architectures.
@@ -82,43 +87,29 @@ Solution Management is also conducted in the context of a specific domain.
 The API will need to support the following use cases for the operations phase
 to support the management of solutions.
 
-- **SolutionList**: list all the available solutions in a domain
-- **SolutionCreate**: define a new solution for a domain from an architecture
-  blueprint
-- **SolutionUpdate**: update an existing solution of a domain based on the
-  information provided in an architecture blueprint
-- **SolutionDelete**: delete a solution from a domain
-- **SolutionShow**: display information of a solution in a domain
-- **ElementList**: list all the available elements of a solutions in a domain
-- **ElementUpdate**: update an existing element of a solution in a domain
-  based on the information provided in a configuration object
-- **ElementDelete**: delete an element of a solution from a domain
-- **ElementShow**: display information of an element of a solution in a domain
-- **ClusterList**: list all the available clusters of an element of a solutions
-  in a domain
-- **ClusterUpdate**: update an existing cluster of an element of a solution in a
-  domain based on the information provided in a configuration object
-- **ClusterDelete**: delete a cluster of an element of a solution from a domain
-- **ClusterShow**: display information of a cluster of an element of a solution
-  in a domain
-- **InstanceList**: list all the available instances of a clusters of an element
-  of a solutions in a domain
-- **InstanceUpdate**: update an existing instance of a cluster of an element of
-  a solution in a domain based on the information provided in a configuration
-  object
-- **InstanceDelete**: delete an instance of a cluster of an element of a solution f
-  rom a domain
-- **InstanceShow**: display information of an instance of a cluster of an element
-  of a solution in a domain
+- **ListSolutions**: list all the available solutions in a domain
+- **StoreSolution**: create a new solution from yaml data and store it in the repository
+- **RetrieveSolution**: retrieve solution from the repository as yaml data
+- **RemoveSolution**: remove solution from the repository
+- **ModifySolution**: create a new solution or update an existing solution based on the information provided in an architecture blueprint
+- **ListElements**: list all the available elements in a solution
+- **RetrieveElement**: retrieve element from the repository as yaml data
+- **ModifyElement**: update an existing element based on the information provided in a configuration object
+- **ListClusters**: list all the available clusters of an element
+- **RetrieveCluster**: retrieve cluster from the repository as yaml data
+- **ModifyCluster**: update an existing cluster based on the information provided in a configuration object
+- **ListInstances**: list all the available instances of a cluster
+- **RetrieveInstance**: retrieve instance from the repository as yaml data
+- **ModifyInstance**: update an existing instance based on the information provided in a configuration object
 
 It is regarded to be an error if:
 - an unknown domain is referenced,
 - an unknown architecture blueprint is referenced,
-- an unknown solution is referenced when intending to show, delete or update a
+- an unknown solution is referenced when intending to retrieve or update a
   solution
-- an unknown element is referenced when intending to show, delete or update an
+- an unknown element is referenced when intending to retrieve or update an
   element
-- an unknown cluster is referenced when intending to show, delete or update a
+- an unknown cluster is referenced when intending to retrieve or update a
   cluster
-- an unknown instance is referenced when intending to show, delete or update an
+- an unknown instance is referenced when intending to retrieve or update an
   instance

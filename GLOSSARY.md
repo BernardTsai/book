@@ -5,6 +5,9 @@ Glossary
 An architecture is a versioned description of the desired configuration of a
 solution.
 
+## [Catalog](Model-Catalog.md)
+The catalog is a subset of the information model of a domain which holds templates (components and their dependencies) for solution elements along with their basic configuration.
+
 ## [Cluster](Model-Solutions.md#Cluster)
 A Cluster describes the runtime configuration for a cluster within a solution element for a specific version of a component type.  
 
@@ -22,6 +25,9 @@ An automation tool which coordinates the versions, configurations and lifecycle 
 
 ## [Depedency](Model-Catalog.md#Dependency)
 A  dependency describes how the containing component relates to other components. It can either be a "context" dependency which defines that the referenced component needs to be "active" before the component can be created, or it may be a "service" dependency which states that the referenced component needs to be "active" before the component can be started.
+
+## [Domain](Model.md#domain)
+A domain is an administrative realm which can be managed independently from other domains
 
 ## [Element](Model-Solutions.md#Element)
 An Element describes the runtime configuration of a solution element based on a component type. A solution element may need to comprise several clusters which resemble versions of a component.
