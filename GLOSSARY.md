@@ -26,8 +26,17 @@ A  dependency describes how the containing component relates to other components
 ## [Element](Model-Solutions.md#Element)
 An Element describes the runtime configuration of a solution element based on a component type. A solution element may need to comprise several clusters which resemble versions of a component.
 
+## [Engine](Orchestrator-Engine.md)
+The orchestrator engine is responsible for coordinating the lifecycle management activities of the various component specific controllers.
+
 ## [Event](Model-Automation.md#Event)
 An event notifies about the occurrence of a task related event.
+
+## [Extensions](Orchestrator-Extensions.md)
+Extensions enhance the functionality of the orchestrator by augmenting it with custom code.
+
+## [Hook](Orchestrator-Extensions.md)
+A hook subscribes to lifecycle events and status information coming from the message bus interface and triggers custom code.
 
 ## [Instance](Model-Solutions.md#Instance)
 An Instance describes an instance of a cluster of a solution element.
