@@ -772,6 +772,116 @@ paths:
       responses:
         "200":
           description: "Success"
+  /domain/{d}/task:
+    get:
+      summary: "List tasks"
+      description: "list all toplevel tasks in a domain (optionally matching a certain request ID)"
+      operationId: "ListTasks"
+      parameters:
+      - name: d
+        in: path
+        description: domain name
+        type: string
+        required: true
+      - name: r
+        in: query
+        description: request name
+        type: string
+        required: false
+      produces:
+      - "application/x-yaml"
+      responses:
+        "200":
+          description: "task names as yaml"
+          schema:
+            $ref: '#/definitions/Names'
+  /domain/{d}/task/{t}:
+    get:
+      summary: "Retrieve task"
+      description: "retrieve task from the repository as yaml data"
+      operationId: "RetrieveTask"
+      parameters:
+      - name: d
+        in: path
+        description: domain name
+        type: string
+        required: true
+      - name: t
+        in: path
+        description: task name
+        type: string
+        required: true
+      produces:
+      - "application/x-yaml"
+      responses:
+        "200":
+          description: "task data as yaml"
+          schema:
+            $ref: '#/definitions/Task'
+    put:
+      summary: "Terminate task"
+      description: "stop a task in a domain"
+      operationId: "TerminateTask"
+      parameters:
+      - name: d
+        in: path
+        description: domain name
+        type: string
+        required: true
+      - name: t
+        in: path
+        description: task name
+        type: string
+        required: true
+      responses:
+        200:
+          description: "Success"
+  /domain/{d}/event:
+    get:
+      summary: "List events"
+      description: "list all events related to a task in a domain"
+      operationId: "ListEvents"
+      parameters:
+      - name: d
+        in: path
+        description: domain name
+        type: string
+        required: true
+      - name: t
+        in: query
+        description: task name
+        type: string
+        required: true
+      produces:
+      - "application/x-yaml"
+      responses:
+        "200":
+          description: "event names as yaml"
+          schema:
+            $ref: '#/definitions/Names'
+  /domain/{d}/event/{e}:
+    get:
+      summary: "Retrieve event"
+      description: "retrieve event from the repository as yaml data"
+      operationId: "RetrieveEvent"
+      parameters:
+      - name: d
+        in: path
+        description: domain name
+        type: string
+        required: true
+      - name: e
+        in: path
+        description: event name
+        type: string
+        required: true
+      produces:
+      - "application/x-yaml"
+      responses:
+        "200":
+          description: "event data as yaml"
+          schema:
+            $ref: '#/definitions/Event'
 definitions:
   Model:
     type: "object"

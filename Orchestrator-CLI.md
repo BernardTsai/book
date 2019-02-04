@@ -51,9 +51,9 @@ are provided for components.
 It is regarded to be an error if:
 - an unknown domain is referenced,
 - a component references unknown components,
-- an attempt is made to redefine a component
+- an attempt is made to redefine a component or
 - an unknown component is referenced when intending to show or delete a
-  component
+  component.
 
 ---
 
@@ -75,9 +75,9 @@ are provided for architectures.
 It is regarded to be an error if:
 - an unknown domain is referenced,
 - an architecture definition is inconsistent,
-- an attempt is made to redefine an architecture
+- an attempt is made to redefine an architecture or
 - an unknown architecture is referenced when intending to show or delete an
-  architecture
+  architecture.
 
 ---
 
@@ -106,10 +106,31 @@ It is regarded to be an error if:
 - an unknown domain is referenced,
 - an unknown architecture blueprint is referenced,
 - an unknown solution is referenced when intending to retrieve or update a
-  solution
+  solution,
 - an unknown element is referenced when intending to retrieve or update an
-  element
+  element,
 - an unknown cluster is referenced when intending to retrieve or update a
-  cluster
+  cluster or
 - an unknown instance is referenced when intending to retrieve or update an
-  instance
+  instance.
+
+---
+
+**Automation**
+
+Automation is also conducted in the context of a specific domain.
+The API will need to provide visibility and operational control over all the tasks being executed in order to manage the lifecycle of a solution.
+
+- **ListTasks**: list all toplevel tasks in a domain (optionally matching a certain request ID)
+- **RetrieveTask**: retrieve task from the repository as yaml data
+- **TerminateTask**: stop a task in a domain
+- **ListEvents**: list all events related to a task in a domain
+- **RetrieveEvent**: retrieve event from the repository as yaml data
+
+It is regarded to be an error if:
+- an unknown domain is referenced,
+- an unknown reference ID is used,
+- an unknown task is referenced when intending to retrieve or terminate a
+  task or list the corresponding events or
+- an unknown event is referenced when intending to retrieve an
+  event.
