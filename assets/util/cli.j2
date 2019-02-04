@@ -1,0 +1,37 @@
+{% macro ensure_full_stop(text) %}{% if text.endswith('.') %}{{ text }}{% else %}{{ text }}.{% endif %}{%endmacro%}
+Command Line Interface Version: {{ swagger_data.info.version }}
+===============================
+
+Documentation of the command line interface of the orchestrator.
+{% for path in swagger_data.paths %}{% for method in swagger_data.paths[path] %}{% set signature = swagger_data.paths[path][method] %}
+{{ ensure_full_stop(signature.summary) }}
+--------
+
+{{ signature.description }}
+
+**Usage:**
+```
+> {{ signature.operationId }} {% for param in signature.parameters %}-{{ param.name }} [{{ param.description }}] {% endfor %}
+```
+
+{% if signature.parameters %}
+**Parameters:**
+{% for param in signature.parameters %}
+{% if param.required -%}
+\-{{ param.name }} [{{ param.description }}] (required)
+{% else -%}
+\-{{ param.name }} [{{ param.description }}] (optional)
+{% endif %}
+{%- endfor %}
+{% endif %}
+
+**Response:**
+{% for code in signature.responses  %}
+{% set response = signature.responses[code] %}
+{% if code == "200" and response.schema is defined  -%}
+{{ response.schema['$ref'].split('/')[-1] }}: {{ response.description }}
+{% endif %}
+{%- endfor %}
+
+---
+{% endfor %}{% endfor %}
