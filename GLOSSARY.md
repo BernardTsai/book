@@ -32,6 +32,9 @@ A domain is an administrative realm which can be managed independently from othe
 ## [Element](Model-Solutions.md#Element)
 An Element describes the runtime configuration of a solution element based on a component type. A solution element may need to comprise several clusters which resemble versions of a component.
 
+## [Endpoint](Concepts-Services.md#Endpoint)
+An Endpoint describes how a service provided by a component can be accessed.
+
 ## [Engine](Orchestrator-Engine.md)
 The orchestrator engine is responsible for coordinating the lifecycle management activities of the various component specific controllers.
 

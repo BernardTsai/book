@@ -1,17 +1,12 @@
 Components
 ==========
 
-> Everything is a component.
+<div class="subtitle">Everything is a component.</div>
 
 The concept assumes that the technological elements obtained by the
 [decomposition](./Concepts-Decomposition.md) of a solution share a set of common
 attributes, behaviours and relationships although they may each be of very
-different nature.
-
-Therefore each technological element is regarded to be a component or to
-be more precise component instance. These component instances may be of specific
-[type](./Concepts-Service.md) and may form [clusters](clusters)
-to ensure service availability.
+different nature. Therefore all technological elements are regarded to be components or to be more precise instances of a component. These component instances may be of specific [type](./Concepts-Service.md) and may form [clusters](clusters)  to ensure service availability.
 
 Structure (C4-Model)
 --------------------
@@ -20,9 +15,7 @@ The C4-Model structures components into four fundamental aspects which may
 evolve independently from one another and are possibly managed by different
 roles.
 
-```
-PICTURE
-```
+<img src="./assets/images/c4model.svg" alt="C4-Model" width="400"/>
 
 1. **Context:** each component requires a dedicated environment to support the
    way it can evolve along its lifecycle and provide its services.
@@ -53,7 +46,7 @@ Instances of a component share following common attributes:
   [version](./Concepts-Versioning.md) of the component type the instance relates
   to.
 - **State:** [lifecycle state](./Concepts-Lifecycle.md) of the instance.
-- **Endpoint:** [service interface](./Concepts-Endpoints.md) via with the
+- **Endpoint:** [service interface](./Concepts-Services.md#Endpoint) via with the
 [service](./Concepts-Services.md) functionality can be accessed.
 - **Configuration:** the [configuration](./Concepts-Configuration.md)
   information controllers require to configure a component instance.
@@ -69,13 +62,13 @@ that is related to the transitions defined in the common
 determine which lifecycle state a component instance has:
 
 - **Status:** queries the current state of a component instance
-- **Install:** provision a component instance as defined in a descriptor
+- **Create:** provision a component instance as defined in a descriptor
 - **Start:** activate a component instance
 - **Stop:** deactivate a component instance
 - **Configure:** configure an inactive component instance
 - **Reconfigure:** configure an active component instance
-- **Deinstall:** remove an inactive instance
-- **Cleanup:** remove a component instance after it has failed
+- **Destroy:** remove an inactive instance
+- **Reset:** remove a component instance after it has failed
 
 Relationships
 -------------
@@ -83,16 +76,8 @@ Relationships
 There are three main types of core relationships defining how component
 instances need to interact amongst one another:
 
-- **Context-Component:** defining which component environment a component
+- **Runtime-Context:** defining which component environment a component
   requires in order to be instantiated
-- **Client-Service:** a service relationship defining which components need to
+- **Service-Context:** a service relationship defining which components need to
   provide services to a component so that it is able to provide its own service
-- **Cluster-Node:** the component instances providing similar functionality need
-  to coordinate their Lifecycle transitions in order to ensure overall service
-  availability from a cluster perspective
-
-```
-
-PICTURE
-
-```
+- **Cluster-Context:** the component instances providing similar functionality need to coordinate their Lifecycle transitions in order to ensure overall service availability from a cluster perspective

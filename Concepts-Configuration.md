@@ -1,7 +1,7 @@
 Configuration
 =============
 
-> Configuration customises a component to the environment and general requirements of its service consumers.
+<div class="subtitle"> Configuration customises a component to the environment and general requirements of its service consumers.</div>
 
 The configuration of a component is a type and possibly version specific task
 which can not be handled in a generic fashion but has to be executed by the

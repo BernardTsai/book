@@ -1,17 +1,10 @@
-Message Bus
-===========
 
-<div class="subtitle">
-The orchestrator notifies about events related to tasks and the status of the solution.
-</div>
+Message Bus Interface
+=====================
 
 The message bus interface is exposed to external systems and serves as a gateway to expose:
 - task related notification events and
 - status information of the the solution.
-
-<img src="./assets/images/msg.svg" alt="Message Bus" width="560"/>
-
----
 
 **Events**
 
@@ -66,8 +59,6 @@ corresponding task:
 | Instance      | string          | name of the instance            |
 | State         | string          | desired lifecycle state         |
 | Configuration | object          | runtime configuration object    |
-
----
 
 **Status**
 
