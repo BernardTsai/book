@@ -1,7 +1,7 @@
 Closed Loop Automation
 ======================
 
-> Control loop to converge the current state towards the desired target state.
+<div class="subtitle"> Control loop to converge the current state towards the desired target state.</div>
 
 A set of actors are involved in the closed loop automation procedure described
 in this subchapter.
@@ -57,9 +57,7 @@ information to the orchestrator.
 Closed Loop
 -----------
 
-```
-Picture
-```
+<img src="./assets/images/closedloop.svg" alt="Closed loop automation" width="400" />
 
 Model based closed loop automation makes use of following process steps in order
 to implement an intent based solution management approach.

@@ -1,7 +1,7 @@
 Lifecycle
 =========
 
-> All components and component clusters follow the exactly same lifecycle model.
+<div class="subtitle"> All components and component clusters follow the exactly same lifecycle model.</div>
 
 Each component regardless of type or version and every component cluster is
 governed by a generic lifecycle model which defines in which states these

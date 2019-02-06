@@ -15,7 +15,6 @@ These best practices/core concepts allow for a choreography of managed component
 * [Services:](./Concepts-Services.md) purpose of components
 * [Versions:](./Concepts-Versions.md) evolution of services
 * [Cluster:](./Concepts-Cluster.md) no single points of failure
-* [Versioning:](./Concepts-Versioning.md) evolution of component and services
 * [Lifecycle Model:](./Concepts-Lifecycle.md) initial, inactive, active, failure
 * [Dependencies:](./Concepts-Dependencies.md) interaction patterns
 * [Closed-Loop:](./Concepts-ClosedLoop.md) converging towards target states
