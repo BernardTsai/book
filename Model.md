@@ -1,7 +1,7 @@
 Model
 =====
 
-> Intent based automation requires a well structured information model.
+<div class="subtitle">Intent based automation requires a well structured information model.</div>
 
 The following diagram provides an overview of the information model:
 

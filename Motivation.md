@@ -1,9 +1,7 @@
 Motivation
 ==========
 
-> How can we constantly change and optimise customer services which require the
-well-aligned interaction of various technologies and at the same time maintain
-overall service quality according to the customers needs.
+<div class="subtitle">How can we constantly change and optimise customer services which require the well-aligned interaction of various technologies and at the same time maintain overall service quality according to the customers needs.</div>
 
 Customer services nowadays make use of a vast amount of different technologies.
 Ensuring service quality for the customers therefore needs to align the
