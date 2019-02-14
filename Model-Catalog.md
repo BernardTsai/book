@@ -35,7 +35,7 @@ for the establishing the component relationship described in the dependency.
 
 | Attribute     | Type                     | Description                                  |
 |---------------|--------------------------|----------------------------------------------|
-| Name          | string                   | name of the dependency                       |
+| Dependency    | string                   | name of the dependency                       |
 | Type          | string                   | type of dependency ("context"/"service")     |
 | Component     | name of the component    | name of the referenced component             |
 | Version       | version of the component | version of the referenced component          |

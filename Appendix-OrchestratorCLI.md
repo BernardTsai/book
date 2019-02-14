@@ -4,71 +4,52 @@ Command Line Interface Version: 0.0.1
 
 Documentation of the command line interface of the orchestrator.
 
-Store model.
---------
+Load Model
+----------
 
-create model from yaml data and store it into the repository
+Create model from yaml data and store it into the repository.
 
 **Usage:**
 ```
-> StoreModel -model [model data as yaml]
+>>> model load <filename>
 ```
-
 
 **Parameters:**
 
-\-model [model data as yaml] (required)
-
-
-
-**Response:**
-
-
-
+- **filename**: name of a file with yaml data
 
 ---
 
-Retrieve model.
---------
+Save Model
+----------
 
-retrieve model from the repository as yaml data
+Retrieve model from the repository as yaml data and save it into a file.
 
 **Usage:**
 ```
-> RetrieveModel
+>>> model save <filename>
 ```
 
+**Parameters:**
 
-
-**Response:**
-
-
-Model: model data as yaml
-
+- **filename**: name of a file
 
 ---
 
-Reset model.
---------
+Reset Model
+-----------
 
-reset model in the repository to initial state
+Reset model in the repository to its initial state.
 
 **Usage:**
 ```
-> ResetModel
+>>> model reset
 ```
-
-
-
-**Response:**
-
-
-
 
 ---
 
-List domains.
---------
+List Domains
+------------
 
 Retrieves list of domain names
 

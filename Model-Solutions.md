@@ -68,12 +68,13 @@ Relationship {#Relationship}
 A Relationship describes the runtime configuration for a dependency
 between clusters of related solution elements.
 
-| Attribute     | Type   | Description                       |
-|---------------|--------|-----------------------------------|
-| Relationship  | string | name of the dependency            |
-| Element       | string | name of the referenced element    |
-| Version       | string | version of the referenced element |
-| Configuration | object | runtime configuration object      |
+| Attribute     | Type   | Description                        |
+|---------------|--------|------------------------------------|
+| Relationship  | string | name of the dependency             |
+| Element       | string | name of the referenced element     |
+| Version       | string | version of the referenced element  |
+| Configuration | object | runtime configuration object       |
+| Endpoint      | object | endpoint of the referenced element |
 
 Instance {#Instance}
 --------

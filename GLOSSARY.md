@@ -70,3 +70,6 @@ A solution entity describes the current configuration and state of a solution wh
 
 ## [Task](Model-Automation.md#Task)
 A task describes an activity to manipulate a solution or parts of a solution.
+
+## [Version](Concepts-Versions.md)
+Versions mark how entities change their purpose over time.

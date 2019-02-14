@@ -86,7 +86,7 @@
   <line style="stroke-linecap: round; stroke: rgb(240, 240, 240);" x1="280" y1="339.999" x2="440" y2="339.999"/>
   <line style="stroke-linecap: round; stroke: rgb(240, 240, 240);" x1="280" y1="359.999" x2="440" y2="359.999"/>
   <line style="stroke-linecap: round; stroke: rgb(240, 240, 240);" x1="282.233" y1="379.999" x2="442.233" y2="379.999"/>
-  <rect y="299.999" width="160" height="100" style="fill: none; stroke: rgb(216, 216, 216);" x="280.233"/>
+  <rect y="299.999" width="160" height="120.001" style="fill: none; stroke: rgb(216, 216, 216);" x="280.233"/>
   <g transform="matrix(1, 0, 0, 1, 470, 229.998993)" bx:origin="3.75 2.35">
     <rect x="10" y="70" width="160" height="20" style="fill: rgb(216, 216, 216);"/>
     <text style="fill: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;; font-size: 12px; white-space: pre; text-anchor: middle;" x="90.016" y="84.623">Cluster Y</text>
@@ -191,4 +191,7 @@
   <line style="stroke: rgb(0, 0, 0); stroke-linecap: round;" x1="620" y1="460.001" x2="620" y2="510"/>
   <line style="stroke: rgb(0, 0, 0); stroke-linecap: round;" x1="600" y1="510" x2="620" y2="510"/>
   <path d="M 330.531 255.175 L 334.531 263.175 L 326.531 263.175 L 330.531 255.175 Z" style="stroke-width: 0px;" transform="matrix(0, 1, 1, 0, 342.824988, 179.469006)" bx:shape="triangle 326.531 255.175 8 8 0.5 0 1@9e73a3a3"/>
+  <rect y="400" width="160" height="20" style="fill: rgb(255, 255, 255);" x="280" bx:origin="3.75 -1.65"/>
+  <text style="fill: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;; font-size: 12px; white-space: pre; text-anchor: middle;" x="360.016" y="414.633" bx:origin="7.035742 -2.138889">Endpoint</text>
+  <line style="stroke-linecap: round; stroke: rgb(240, 240, 240);" x1="280" y1="400" x2="440" y2="400"/>
 </svg>

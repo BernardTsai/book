@@ -5,7 +5,7 @@ SOLAR System
 
 SOLAR-System is a reference implementation of the concepts presented in the previous chapters. It is deliberately intended to be kept as simple as possible and in its current state is not intended to serve for production purposes.
 
-It has been implemented in [GO](https://golang.org/) and the source code together with sample data can be found on [https://github.com/BernardTsai/orchestrator](https://github.com/BernardTsai/solar).
+It has been implemented in [GO](https://golang.org/) and the source code together with sample data can be found on [https://github.com/BernardTsai/solar](https://github.com/BernardTsai/solar).
 
 This chapter serves as a quickstart introduction to the SOLAR system covering which prerequisites will need to be met, the installation procedure, and how to configure and make use of the reference implementation.
 
