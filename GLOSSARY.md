@@ -68,6 +68,9 @@ The repository is a module of the orchestrator and holds the information require
 ## [Solution](Model-Solutions.md#Solution)
 A solution entity describes the current configuration and state of a solution which may consist of a number of elements.
 
+## [State](Concepts-Lifecycle.md)
+The lifecycle state of an entity of a solution. The current lifecycle state of an entity might differ from the desired target state.
+
 ## [Task](Model-Automation.md#Task)
 A task describes an activity to manipulate a solution or parts of a solution.
 

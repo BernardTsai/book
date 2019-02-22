@@ -25,6 +25,9 @@ their names.
 | Attribute     | Type            | Description                    |
 |---------------|-----------------|--------------------------------|
 | Solution      | string          | name of the solution           |
+| Version       | string          | version of the solution        |
+| Target        | string          | target state of the solution   |
+| State         | string          | state of the solution          |
 | Configuration | object          | runtime configuration object   |
 | Elements      | map to Elements | map of names to elements       |
 
@@ -39,6 +42,8 @@ a component (Clusters) which may require their own specific configurations.
 |---------------|----------------|------------------------------|
 | Element       | string         | name of the solution element |
 | Component     | string         | name of the component        |
+| Target        | string         | target state of the element  |
+| State         | string         | state of the element         |
 | Configuration | object         | runtime configuration object |
 | Endpoint      | object         | service endpoint             |
 | Clusters      | map to Cluster | map of names to clusters     |
@@ -55,7 +60,10 @@ this information it its relationships attribute.
 | Attribute     | Type                 | Description                   |
 |---------------|----------------------|-------------------------------|
 | Version       | string               | version of the component      |
-| State         | string               | desired lifecycle state       |
+| Target        | string               | target state of the cluster   |
+| State         | string               | state of the cluster          |
+| Min           | positive integer     | minimum cluster size          |
+| Max           | positive integer     | maximum cluster size          |
 | Size          | positive integer     | desired cluster size          |
 | Configuration | object               | runtime configuration object  |
 | Endpoint      | object               | service endpoint              |
@@ -73,6 +81,8 @@ between clusters of related solution elements.
 | Relationship  | string | name of the dependency             |
 | Element       | string | name of the referenced element     |
 | Version       | string | version of the referenced element  |
+| Target        | string | target state of the relationship   |
+| State         | string | state of the relationship          |
 | Configuration | object | runtime configuration object       |
 | Endpoint      | object | endpoint of the referenced element |
 
@@ -85,6 +95,7 @@ This comprises it's state, runtime configuration and service endpoint.
 | Attribute     | Type                 | Description                       |
 |---------------|----------------------|-----------------------------------|
 | UUID          | string               | unique identifier of the instance |
-| State         | string               | current lifecycle state           |
+| Target        | string               | target state of the instance      |
+| State         | string               | state of the instance             |
 | Configuration | object               | runtime configuration object      |
 | Endpoint      | object               | service endpoint                  |
