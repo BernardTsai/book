@@ -54,7 +54,7 @@
   <line style="stroke: rgb(0, 0, 0); stroke-linecap: round;" x1="220" y1="220" x2="350" y2="220"/>
   <line style="stroke: rgb(0, 0, 0); stroke-linecap: round;" x1="270" y1="230" x2="290" y2="230" transform="matrix(0, -1, 1, 0, 50, 510)"/>
   <text style="fill: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;; font-size: 12px; white-space: pre;" x="263.057" y="324.623">DevOps</text>
-  <text style="fill: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;; font-size: 12px; white-space: pre;" x="69.644" y="324.623">Vendor</text>
+  <text style="fill: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;; font-size: 12px; white-space: pre;" x="69.644" y="324.623">Partner</text>
   <g transform="matrix(1, 0, 0, -1, -260, 340)">
     <line style="stroke: rgb(0, 0, 0); stroke-linecap: round;" x1="350" y1="100" x2="350" y2="130"/>
     <path d="M 350 -140 L 355 -130 L 345 -130 L 350 -140 Z" style="" transform="matrix(1, 0, 0, -1, 0, 0)" bx:shape="triangle 345 -140 10 10 0.5 0 1@4d10d35a"/>
@@ -62,5 +62,5 @@
   <text style="fill: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;; font-size: 12px; white-space: pre;" x="40.003" y="226.529">provide</text>
   <text style="fill: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;; font-size: 12px; white-space: pre;" x="230.003" y="236.529">design</text>
   <text style="fill: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;; font-size: 12px; white-space: pre;" x="291.784" y="236.529">manage</text>
-  <text style="fill: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;; font-size: 12px; white-space: pre;" x="324.243" y="122.717">use</text>
+  <text style="fill: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;; font-size: 12px; white-space: pre;" x="263.056" y="122.748">manage &amp; use</text>
 </svg>

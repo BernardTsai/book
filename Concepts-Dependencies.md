@@ -35,7 +35,7 @@ the course of this process.
 
 **Service Context**
 
-Often components require a services from other components in order to be
+Often components require a set of services from other components in order to be
 capable of providing their own service. These backend components are the
 service environment of these components.
 
