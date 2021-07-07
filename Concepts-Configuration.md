@@ -3,9 +3,7 @@ Configuration
 
 <div class="subtitle"> Configuration customises a component to the environment and general requirements of its service consumers.</div>
 
-The configuration of a component is a type and possibly version specific task
-which can not be handled in a generic fashion but has to be executed by the
-corresponding controller.
+The configuration of a component typically depends on the type of the component and possibly even on the version and therefore can not be handled in a generic manner but needs to be executed by the corresponding specialised controller.
 
 <img src="./assets/images/configuration.svg" alt="Configuration" width="600"/>
 

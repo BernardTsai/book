@@ -1,6 +1,6 @@
 # Foreword
 
-There is a profileration of new technologies which have the potential to provide exciting new types of services to the customers. This leads to a continuous evolution of the technological landscape which needs to be managed consistently so that the users of these services on the one hand benefit from the new features but at the same time can rely on the service quality.
+There is a proliferation of new technologies which have the potential to provide exciting new types of services to the customers. This leads to a continuous evolution of the technological landscape which needs to be managed consistently so that the users of these services on the one hand benefit from the new features but at the same time can rely on the service quality.
 
 This is an example of the stability/flexibility dilemma and there are many traditional ways of how to address this, e.g.
 

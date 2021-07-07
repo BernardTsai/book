@@ -11,7 +11,7 @@ Actors
 
 **DevOps**
 
-It is a assumed that the administration of the solution providing customer
+It is assumed that the administration of the solution providing customer
 services is handled by a DevOps team which understands the design of the
 solution and can trigger required administrative changes.
 

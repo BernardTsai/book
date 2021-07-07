@@ -163,4 +163,14 @@
   <text style="fill: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;; font-size: 24px; font-weight: 700; text-anchor: middle; white-space: pre;" x="320.013" y="565.704">ARCHITECTURE</text>
   <text style="fill: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;; font-size: 24px; font-weight: 700; text-anchor: middle; white-space: pre;" x="560.005" y="565.704">SOLUTION</text>
   <text style="fill: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;; font-size: 24px; font-weight: 700; text-anchor: middle; white-space: pre;" x="800.013" y="565.705">AUTOMATION</text>
+  <line style="stroke-linecap: round; fill: rgb(255, 0, 0); stroke: rgb(255, 0, 0);" x1="640" y1="180" x2="680" y2="180"/>
+  <path d="M -650.297 -251.108 L -646.297 -243.108 L -654.297 -243.108 L -650.297 -251.108 Z" style="stroke-width: 0px; fill: rgb(255, 0, 0);" transform="matrix(0, -1, 1, 0, 889.108032, -470.296997)" bx:shape="triangle -654.297 -251.108 8 8 0.5 0 1@6d29a8b2"/>
+  <g transform="matrix(1, 0, 0, 1, 212.210022, 25.485001)">
+    <line style="stroke: rgb(0, 0, 0); stroke-linecap: round;" x1="647.79" y1="114.515" x2="647.79" y2="134.515"/>
+    <path d="M -647.79 -136.515 L -643.79 -128.515 L -651.79 -128.515 L -647.79 -136.515 Z" style="stroke-width: 0px;" transform="matrix(-1, 0, 0, -1, 0, 0)" bx:shape="triangle -651.79 -136.515 8 8 0.5 0 1@60bffcf9"/>
+  </g>
+  <line style="stroke: rgb(0, 0, 0); stroke-linecap: round;" x1="860" y1="140" x2="890" y2="140"/>
+  <line style="stroke: rgb(0, 0, 0); stroke-linecap: round;" x1="880" y1="180" x2="890" y2="180"/>
+  <line style="stroke: rgb(0, 0, 0); stroke-linecap: round;" x1="890" y1="140" x2="890" y2="180"/>
+  <text style="fill: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;; font-size: 8px; white-space: pre;" x="857.283" y="136.693">subtasks</text>
 </svg>

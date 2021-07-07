@@ -7,7 +7,7 @@ How can we constantly change and optimise customer services which require the we
 Context{#Context}
 -------
 
-Typical solutions nowadays consist of a multitude of different solution elements which need to interact consistently in order to provide the desired services. These services are typically provided to the users as managed services in the sense that the user need not be concerned of how to assemble and maintain the various solution elements. This task can be handled by a DevOps teams which has partnered with a set of vendors providing the solution components from which the solution architecture with its elements can be derived.
+Typical solutions nowadays consist of a multitude of different solution elements which need to interact consistently in order to provide the desired services. These services are typically provided to the users as managed services in the sense that the user need not be concerned of how to assemble and maintain the various solution elements. This task can be handled by a DevOps team which has partnered with a set of vendors providing the solution components from which the solution architecture with its elements can be derived.
 
 It is not a trivial task for the DevOps team and this book will list a couple of the issues they will encounter when attempting to provide high quality services in a constantly evolving context.
 
