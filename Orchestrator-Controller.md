@@ -9,7 +9,7 @@ The diagram shows how the orchestrator engine and the monitor system interact wi
 
 <img src="./assets/images/controller.svg" alt="Controller" width="520"/>
 
-1. The controller can either receive lifecycle management instructions from the orchestration engine or be triggered by the monitoring system to determine the status of instances of solution elements.
+1. The controller can either receive lifecycle management instructions from the orchestration engine or be queried by the monitoring system to determine the status of instances of solution elements.
 2. The controller then executes these requests and
 3. delivers the results to the requesting module of the orchestrator.
 

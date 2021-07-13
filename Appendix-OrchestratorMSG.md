@@ -10,7 +10,7 @@ The message bus interface is exposed to external systems and serves as a gateway
 
 The orchestrator can be handed a unique topic identifier "**TOPIC1**" in the
 course of the startup process. This is the topic to which it will publish its
-events to a [Kafka](https://kafka.apache.org/) broker.
+events to a message broker.
 
 Each event is related to a task and will notify wether:
 
@@ -62,7 +62,7 @@ corresponding task:
 
 **Status**
 
-The orchestrator can be handed a second unique topic identifier "**TOPIC2**" in the course of the startup process. This is the topic to which it will publish its status information to a [Kafka](https://kafka.apache.org/) broker.
+The orchestrator can be handed a second unique topic identifier "**TOPIC2**" in the course of the startup process. This is the topic to which it will publish its status information to a message broker.
 
 The status information captures following attributes of the state of a solution, element, cluster or instance within a domain.
 

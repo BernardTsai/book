@@ -49,7 +49,7 @@ A ClusterConfiguration describes the configuration for a cluster within a
 solution element for a specific version of a component type.
 A cluster has a certain size and should be in a certain state of the lifecycle.
 Due to its dependencies to other solution elements it will also have to describe
-this information it its relationships attribute.
+this information in its relationships attribute.
 
 | Attribute     | Type                              | Description                         |
 |---------------|-----------------------------------|-------------------------------------|
